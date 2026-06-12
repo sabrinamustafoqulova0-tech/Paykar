@@ -1,0 +1,136 @@
+[
+  {
+    "id": 1,
+    "slug": "molochnye-produkty",
+    "name": "Молочные продукты",
+    "icon": "🥛",
+    "subcategories": [
+      { "id": 101, "slug": "syry", "name": "Сыры" },
+      { "id": 102, "slug": "moloko-slivki", "name": "Молоко и сливки" },
+      { "id": 103, "slug": "smetana-tvorog-syrki", "name": "Сметана, творог, сырки" },
+      { "id": 104, "slug": "yogurty", "name": "Йогурты" }
+    ]
+  },
+  {
+    "id": 2,
+    "slug": "myaso-ptitsa",
+    "name": "Мясо-птица",
+    "icon": "🥩",
+    "subcategories": [
+      { "id": 201, "slug": "myaso", "name": "Мясо" },
+      { "id": 202, "slug": "ptitsa", "name": "Птица" },
+      { "id": 203, "slug": "polufabrikaty", "name": "Полуфабрикаты" }
+    ]
+  },
+  {
+    "id": 3,
+    "slug": "hleb-i-vypechka",
+    "name": "Хлебобулочные изделия",
+    "icon": "🍞",
+    "subcategories": [
+      { "id": 301, "slug": "hleb-non-fatir", "name": "Хлеб, нон, фатир" },
+      { "id": 302, "slug": "sukhari-bulochki", "name": "Сухари, баранки и булочки" },
+      { "id": 303, "slug": "nasha-pekarnya", "name": "Наша пекарня" }
+    ]
+  },
+  {
+    "id": 4,
+    "slug": "frukty-i-ovoshchi",
+    "name": "Фрукты и овощи",
+    "icon": "🍎",
+    "subcategories": [
+      { "id": 401, "slug": "ovoshchi", "name": "Овощи" },
+      { "id": 402, "slug": "frukty", "name": "Фрукты" },
+      { "id": 403, "slug": "orekhi-sukhofrukty", "name": "Орехи и сухофрукты" }
+    ]
+  },
+  {
+    "id": 5,
+    "slug": "bakaleya",
+    "name": "Бакалея",
+    "icon": "🍝",
+    "subcategories": [
+      { "id": 501, "slug": "krupy", "name": "Крупы" },
+      { "id": 502, "slug": "makarony-lapsha", "name": "Макароны, лапша быстрого приготовления" },
+      { "id": 503, "slug": "muka-testo", "name": "Мука, тесто, дрожжи" },
+      { "id": 504, "slug": "maslo-rastitelnoe", "name": "Масло растительное" }
+    ]
+  },
+  {
+    "id": 6,
+    "slug": "voda-i-napitki",
+    "name": "Вода и напитки",
+    "icon": "🥤",
+    "subcategories": [
+      { "id": 601, "slug": "soki", "name": "Соки" },
+      { "id": 602, "slug": "voda", "name": "Минеральная и питьевая вода" },
+      { "id": 603, "slug": "prokhladitelnye-napitki", "name": "Прохладительные напитки" }
+    ]
+  },
+  {
+    "id": 7,
+    "slug": "sladosti",
+    "name": "Сладости",
+    "icon": "🍬",
+    "subcategories": [
+      { "id": 701, "slug": "shokolad", "name": "Шоколад плиточный / батончики" },
+      { "id": 702, "slug": "konfety", "name": "Конфеты" },
+      { "id": 703, "slug": "nabor-konfet", "name": "Набор конфет" }
+    ]
+  },
+  {
+    "id": 8,
+    "slug": "chay-kofe-kakao",
+    "name": "Чай, кофе, какао",
+    "icon": "☕",
+    "subcategories": [
+      { "id": 801, "slug": "chay", "name": "Чай" },
+      { "id": 802, "slug": "kofe", "name": "Кофе" },
+      { "id": 803, "slug": "kakao", "name": "Какао, шоколад" }
+    ]
+  },
+  {
+    "id": 9,
+    "slug": "konservirovannye-produkty",
+    "name": "Консервированные продукты",
+    "icon": "🥫",
+    "subcategories": [
+      { "id": 901, "slug": "rybnye-konservy", "name": "Рыбные консервы" },
+      { "id": 902, "slug": "myasnye-konservy", "name": "Мясные консервы" },
+      { "id": 903, "slug": "ovoshchnye-konservy", "name": "Овощные и фруктовые консервы" }
+    ]
+  },
+  {
+    "id": 10,
+    "slug": "gotovaya-eda",
+    "name": "Готовая еда",
+    "icon": "🥗",
+    "subcategories": [
+      { "id": 1001, "slug": "salaty", "name": "Салаты" },
+      { "id": 1002, "slug": "vtorye-blyuda", "name": "Вторые блюда" },
+      { "id": 1003, "slug": "zavtraki", "name": "Завтраки" }
+    ]
+  },
+  {
+    "id": 11,
+    "slug": "krasota-i-gigiena",
+    "name": "Красота и гигиена",
+    "icon": "🧴",
+    "subcategories": [
+      { "id": 1101, "slug": "sredstvo-dlya-stirki", "name": "Средство для стирки" },
+      { "id": 1102, "slug": "gigiena-polosti-rta", "name": "Гигиена полости рта" },
+      { "id": 1103, "slug": "ukhod-za-volosami-i-telom", "name": "Средство для мытья и ухода" }
+    ]
+  },
+  {
+    "id": 12,
+    "slug": "vse-dlya-detey",
+    "name": "Все для детей",
+    "icon": "🧸",
+    "subcategories": [
+      { "id": 1201, "slug": "podguzniki", "name": "Подгузники" },
+      { "id": 1202, "slug": "smesi-i-kashi", "name": "Смеси и каши" },
+      { "id": 1203, "slug": "igrushki", "name": "Игрушки" }
+    ]
+  }
+]

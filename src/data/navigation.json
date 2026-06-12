@@ -1,0 +1,28 @@
+{
+  "header": [
+    { "label": "Каталог", "path": "/catalog" },
+    { "label": "Акции", "path": "/sale" },
+    { "label": "О нас", "path": "/about" },
+    { "label": "Доставка", "path": "/delivery" },
+    { "label": "Контакты", "path": "/contacts" }
+  ],
+  "footer": {
+    "buyers": [
+      { "label": "Порядок оформления заказа", "path": "/help" },
+      { "label": "Условия оплаты", "path": "/payment" },
+      { "label": "Условия доставки", "path": "/delivery" },
+      { "label": "Возврат товара", "path": "/warranty" }
+    ],
+    "partners": [
+      { "label": "Вакансии в сети", "path": "/jobs" },
+      { "label": "Наши магазины", "path": "/contacts/stores" },
+      { "label": "Служба поддержки", "path": "/help" }
+    ],
+    "info": [
+      { "label": "О компании", "path": "/about" },
+      { "label": "Новости", "path": "/company/news" },
+      { "label": "Отзывы клиентов", "path": "/company/reviews" },
+      { "label": "Контакты", "path": "/contacts" }
+    ]
+  }
+}

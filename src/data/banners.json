@@ -1,0 +1,42 @@
+[
+  {
+    "id": 1,
+    "title": "Быстрая доставка по Душанбе!",
+    "subtitle": "Доставим продукты за 2 часа прямо до вашей двери. Стоимость доставки — 20 сомони. Минимальный заказ — 100 сомони.",
+    "buttonText": "Заказать продукты",
+    "buttonLink": "/catalog",
+    "image": "https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?w=1200&auto=format&fit=crop&q=80",
+    "bgColor": "#2e7d32",
+    "isActive": true
+  },
+  {
+    "id": 2,
+    "title": "Свежая выпечка из нашей пекарни",
+    "subtitle": "Самбуса, тандырные лепешки, кексы и пироги. Горячие и ароматные каждый день к вашему столу!",
+    "buttonText": "В пекарню",
+    "buttonLink": "/category/hleb-i-vypechka",
+    "image": "https://images.unsplash.com/photo-1509440159596-0249088772ff?w=1200&auto=format&fit=crop&q=80",
+    "bgColor": "#ef6c00",
+    "isActive": true
+  },
+  {
+    "id": 3,
+    "title": "Готовая еда — экономим ваше время!",
+    "subtitle": "Свежие салаты, вторые блюда и традиционный душанбинский плов собственного приготовления.",
+    "buttonText": "Смотреть меню",
+    "buttonLink": "/category/gotovaya-eda",
+    "image": "https://images.unsplash.com/photo-1546069901-ba9599a7e63c?w=1200&auto=format&fit=crop&q=80",
+    "bgColor": "#6a1b9a",
+    "isActive": true
+  },
+  {
+    "id": 4,
+    "title": "Свежие овощи и фрукты от фермеров",
+    "subtitle": "Сочные яблоки, спелые бананы и свежие розовые томаты с доставкой на дом.",
+    "buttonText": "Выбрать продукты",
+    "buttonLink": "/category/frukty-i-ovoshchi",
+    "image": "https://images.unsplash.com/photo-1610348725531-843dff14722a?w=1200&auto=format&fit=crop&q=80",
+    "bgColor": "#1565c0",
+    "isActive": true
+  }
+]

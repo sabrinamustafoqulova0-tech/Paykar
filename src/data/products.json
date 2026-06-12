@@ -1,0 +1,844 @@
+[
+  {
+    "id": 1,
+    "name": "Молоко Весёлый Молочник 3.2% 1л",
+    "slug": "moloko-veselyj-molochnik-3-2-1l",
+    "categoryId": 1,
+    "subcategoryId": 102,
+    "brand": "Весёлый Молочник",
+    "price": 14,
+    "rating": 4.8,
+    "reviewCount": 12,
+    "isNew": true,
+    "inStock": true,
+    "images": [
+      "https://images.unsplash.com/photo-1550583724-b2692b85b150?w=500&auto=format&fit=crop&q=60"
+    ],
+    "description": "Свежее пастеризованное молоко с жирностью 3.2%. Отличный источник кальция и витаминов для всей семьи.",
+    "specifications": {
+      "Объем": "1 л",
+      "Жирность": "3.2%",
+      "Тип упаковки": "Тетра Пак",
+      "Страна-производитель": "Казахстан"
+    }
+  },
+  {
+    "id": 2,
+    "name": "Сметана Простоквашино 15% 300г",
+    "slug": "smetana-prostokvashino-15-300g",
+    "categoryId": 1,
+    "subcategoryId": 103,
+    "brand": "Простоквашино",
+    "price": 18,
+    "oldPrice": 20,
+    "discount": 10,
+    "rating": 4.9,
+    "reviewCount": 8,
+    "isNew": false,
+    "inStock": true,
+    "images": [
+      "https://images.unsplash.com/photo-1571244856053-1a5a9cbde9f2?w=500&auto=format&fit=crop&q=60"
+    ],
+    "description": "Нежная густая сметана из натуральных сливок. Идеально подходит для заправки салатов, супов и выпечки.",
+    "specifications": {
+      "Вес": "300 г",
+      "Жирность": "15%",
+      "Состав": "Сливки, закваска молочнокислых микроорганизмов",
+      "Страна-производитель": "Россия"
+    }
+  },
+  {
+    "id": 3,
+    "name": "Сыр Hochland плавленый с ветчиной в треугольниках 140г",
+    "slug": "syr-hochland-plavlenyj-s-vetchinoj-140g",
+    "categoryId": 1,
+    "subcategoryId": 101,
+    "brand": "Hochland",
+    "price": 21,
+    "rating": 4.7,
+    "reviewCount": 15,
+    "isNew": false,
+    "inStock": true,
+    "images": [
+      "https://images.unsplash.com/photo-1486887396153-fa416525c108?w=500&auto=format&fit=crop&q=60"
+    ],
+    "description": "Плавленый сыр с кусочками настоящей сочной ветчины. Удобная порционная упаковка в треугольниках.",
+    "specifications": {
+      "Вес": "140 г",
+      "Количество порций": "8 шт",
+      "Жирность": "45%",
+      "Страна-производитель": "Россия"
+    }
+  },
+  {
+    "id": 4,
+    "name": "Говядина свежая (мякоть без кости) 1кг",
+    "slug": "govyadina-svezhaya-myakot-bez-kosti-1kg",
+    "categoryId": 2,
+    "subcategoryId": 201,
+    "brand": "Местный производитель",
+    "price": 85,
+    "rating": 4.9,
+    "reviewCount": 24,
+    "isNew": true,
+    "inStock": true,
+    "images": [
+      "https://images.unsplash.com/photo-1544025162-d76694265947?w=500&auto=format&fit=crop&q=60"
+    ],
+    "description": "Отборная охлажденная говяжья мякоть. Идеально для тушения, запекания и приготовления традиционного таджикского плова.",
+    "specifications": {
+      "Вес": "1 кг",
+      "Состояние": "Охлажденное",
+      "Часть туши": "Мякоть (тазобедренная часть)",
+      "Страна-производитель": "Таджикистан"
+    }
+  },
+  {
+    "id": 5,
+    "name": "Цыпленок-бройлер Наша Птица свежезамороженный 1кг",
+    "slug": "tsyplyonok-brojler-nasha-ptitsa-1kg",
+    "categoryId": 2,
+    "subcategoryId": 202,
+    "brand": "Наша Птица",
+    "price": 34,
+    "oldPrice": 38,
+    "discount": 11,
+    "rating": 4.6,
+    "reviewCount": 19,
+    "isNew": false,
+    "inStock": true,
+    "images": [
+      "https://images.unsplash.com/photo-1604503468506-a8da13d82791?w=500&auto=format&fit=crop&q=60"
+    ],
+    "description": "Тушка цыпленка-бройлера потрошеная. Мясо птицы нежное, подходит для диетического питания, жарки или супов.",
+    "specifications": {
+      "Вес": "1 кг",
+      "Состояние": "Замороженное",
+      "Категория": "Первый сорт",
+      "Страна-производитель": "Таджикистан"
+    }
+  },
+  {
+    "id": 6,
+    "name": "Котлеты домашние из говядины полуфабрикат 500г",
+    "slug": "kotlety-domashnie-iz-govyadiny-500g",
+    "categoryId": 2,
+    "subcategoryId": 203,
+    "brand": "Собственное производство",
+    "price": 38,
+    "rating": 4.5,
+    "reviewCount": 7,
+    "isNew": true,
+    "inStock": true,
+    "images": [
+      "https://images.unsplash.com/photo-1594212699903-ec8a3eca50f5?w=500&auto=format&fit=crop&q=60"
+    ],
+    "description": "Полуфабрикаты котлет из свежего говяжьего фарша со специями и луком. Готовы к жарке или запеканию.",
+    "specifications": {
+      "Вес": "500 г",
+      "Количество в упаковке": "6 шт",
+      "Состояние": "Охлажденное",
+      "Производитель": "Кулинария Пайкар"
+    }
+  },
+  {
+    "id": 7,
+    "name": "Лепешка таджикская (Нон) свежевыпеченная 1шт",
+    "slug": "lepeshka-tadzhikskaya-non-1sht",
+    "categoryId": 3,
+    "subcategoryId": 301,
+    "brand": "Собственное производство",
+    "price": 5,
+    "rating": 5.0,
+    "reviewCount": 42,
+    "isNew": true,
+    "inStock": true,
+    "images": [
+      "https://images.unsplash.com/photo-1509440159596-0249088772ff?w=500&auto=format&fit=crop&q=60"
+    ],
+    "description": "Традиционная национальная таджикская лепешка, выпеченная в тандыре. Ароматная, мягкая и с хрустящей корочкой.",
+    "specifications": {
+      "Количество": "1 шт",
+      "Вес": "прибл. 350 г",
+      "Состав": "Мука в/с, дрожжи, вода, соль, кунжут",
+      "Время выпечки": "Ежедневно"
+    }
+  },
+  {
+    "id": 8,
+    "name": "Батон нарезной пшеничный 400г",
+    "slug": "baton-nareznoj-pshenichnyj-400g",
+    "categoryId": 3,
+    "subcategoryId": 302,
+    "brand": "Собственное производство",
+    "price": 4,
+    "rating": 4.8,
+    "reviewCount": 14,
+    "isNew": false,
+    "inStock": true,
+    "images": [
+      "https://images.unsplash.com/photo-1549931319-a545dcf3bc73?w=500&auto=format&fit=crop&q=60"
+    ],
+    "description": "Классический пшеничный хлеб в нарезке. Мягкий мякиш и золотистая корочка идеальны для бутербродов.",
+    "specifications": {
+      "Вес": "400 г",
+      "Тип": "Нарезной",
+      "Сорт муки": "Высший сорт",
+      "Производитель": "Пекарня Пайкар"
+    }
+  },
+  {
+    "id": 9,
+    "name": "Самбуса слоеная с говядиной тандырная 1шт",
+    "slug": "sambusa-sloenaya-s-govyadinoj-1sht",
+    "categoryId": 3,
+    "subcategoryId": 303,
+    "brand": "Собственная пекарня",
+    "price": 7,
+    "rating": 4.9,
+    "reviewCount": 33,
+    "isNew": true,
+    "inStock": true,
+    "images": [
+      "https://images.unsplash.com/photo-1601050690597-df056fb4ce78?w=500&auto=format&fit=crop&q=60"
+    ],
+    "description": "Слоеная самбуса, выпеченная в тандыре, со специями и нежным говяжьим фаршем. Настоящее национальное лакомство.",
+    "specifications": {
+      "Количество": "1 шт",
+      "Начинка": "Рубленая говядина, лук, черный перец",
+      "Тесто": "Слоеное",
+      "Производитель": "Тандырная Пайкар"
+    }
+  },
+  {
+    "id": 10,
+    "name": "Бананы импортные 1кг",
+    "slug": "banany-importnye-1kg",
+    "categoryId": 4,
+    "subcategoryId": 402,
+    "brand": "Импорт",
+    "price": 24,
+    "oldPrice": 28,
+    "discount": 14,
+    "rating": 4.7,
+    "reviewCount": 22,
+    "isNew": false,
+    "inStock": true,
+    "images": [
+      "https://images.unsplash.com/photo-1571771894821-ce9b6c11b08e?w=500&auto=format&fit=crop&q=60"
+    ],
+    "description": "Спелые отборные желтые бананы. Кладезь калия и отличный перекус.",
+    "specifications": {
+      "Вес": "1 кг",
+      "Спелость": "Желтые (готовые к употреблению)",
+      "Страна-импортер": "Эквадор"
+    }
+  },
+  {
+    "id": 11,
+    "name": "Томаты розовые местные 1кг",
+    "slug": "tomaty-rozovye-mestnye-1kg",
+    "categoryId": 4,
+    "subcategoryId": 401,
+    "brand": "Местный фермер",
+    "price": 16,
+    "rating": 4.8,
+    "reviewCount": 11,
+    "isNew": true,
+    "inStock": true,
+    "images": [
+      "https://images.unsplash.com/photo-1592924357228-91a4daadcfea?w=500&auto=format&fit=crop&q=60"
+    ],
+    "description": "Сочные и сладкие розовые помидоры, выращенные в теплицах Таджикистана. Ароматные и мясистые.",
+    "specifications": {
+      "Вес": "1 кг",
+      "Тип": "Розовые помидоры",
+      "Страна-производитель": "Таджикистан"
+    }
+  },
+  {
+    "id": 12,
+    "name": "Смесь орехов Пайкар отборная 200г",
+    "slug": "smes-orekhov-paykar-200g",
+    "categoryId": 4,
+    "subcategoryId": 403,
+    "brand": "Пайкар Фасовка",
+    "price": 32,
+    "rating": 4.9,
+    "reviewCount": 9,
+    "isNew": false,
+    "inStock": true,
+    "images": [
+      "https://images.unsplash.com/photo-1596727147705-61a532a659bd?w=500&auto=format&fit=crop&q=60"
+    ],
+    "description": "Полезное ассорти из жареных орехов: кешью, миндаль, фундук, грецкий орех. Идеальный источник энергии.",
+    "specifications": {
+      "Вес": "200 г",
+      "Состав": "Кешью, миндаль, фундук, грецкий орех",
+      "Тип обработки": "Жареные орехи",
+      "Упаковка": "Пакет с замком Zip-Lock"
+    }
+  },
+  {
+    "id": 13,
+    "name": "Рис Девзира для плова узбекский 1кг",
+    "slug": "ris-devzira-dlya-plova-1kg",
+    "categoryId": 5,
+    "subcategoryId": 501,
+    "brand": "Национальные крупы",
+    "price": 25,
+    "rating": 4.9,
+    "reviewCount": 27,
+    "isNew": false,
+    "inStock": true,
+    "images": [
+      "https://images.unsplash.com/photo-1586201375761-83865001e31c?w=500&auto=format&fit=crop&q=60"
+    ],
+    "description": "Элитный слабошлифованный рис сорта Девзира с розовым оттенком. Идеально впитывает жир и воду, создавая рассыпчатый праздничный плов.",
+    "specifications": {
+      "Вес": "1 кг",
+      "Сорт": "Девзира",
+      "Степень шлифовки": "Слабошлифованный",
+      "Страна-производитель": "Узбекистан"
+    }
+  },
+  {
+    "id": 14,
+    "name": "Макароны Шебекинские Перья №112 450г",
+    "slug": "makarony-shebekinskie-perya-112-450g",
+    "categoryId": 5,
+    "subcategoryId": 502,
+    "brand": "Шебекинские",
+    "price": 11,
+    "rating": 4.8,
+    "reviewCount": 18,
+    "isNew": false,
+    "inStock": true,
+    "images": [
+      "https://images.unsplash.com/photo-1621961477114-f8e32a60a8e0?w=500&auto=format&fit=crop&q=60"
+    ],
+    "description": "Макаронные изделия группы А из твердых сортов пшеницы. Сохраняют форму при варке.",
+    "specifications": {
+      "Вес": "450 г",
+      "Форма": "Перья (Penne)",
+      "Сорт пшеницы": "Твердый (Дурум)",
+      "Страна-производитель": "Россия"
+    }
+  },
+  {
+    "id": 15,
+    "name": "Масло подсолнечное Слобода Рафинированное 1л",
+    "slug": "maslo-podsolnechnoe-sloboda-1l",
+    "categoryId": 5,
+    "subcategoryId": 504,
+    "brand": "Слобода",
+    "price": 19,
+    "oldPrice": 22,
+    "discount": 13,
+    "rating": 4.7,
+    "reviewCount": 31,
+    "isNew": false,
+    "inStock": true,
+    "images": [
+      "https://images.unsplash.com/photo-1474979266404-7eaacbcd87c5?w=500&auto=format&fit=crop&q=60"
+    ],
+    "description": "Высокоочищенное вымороженное подсолнечное масло высшего сорта. Не дымит и не пенится при жарке.",
+    "specifications": {
+      "Объем": "1 л",
+      "Сорт": "Высший",
+      "Степень очистки": "Рафинированное дезодорированное",
+      "Страна-производитель": "Россия"
+    }
+  },
+  {
+    "id": 16,
+    "name": "Напиток Coca-Cola Classic газированный 1.5л",
+    "slug": "napitok-coca-cola-classic-1-5l",
+    "categoryId": 6,
+    "subcategoryId": 603,
+    "brand": "Coca-Cola",
+    "price": 11,
+    "rating": 4.9,
+    "reviewCount": 56,
+    "isNew": false,
+    "inStock": true,
+    "images": [
+      "https://images.unsplash.com/photo-1622483767028-3f66f32aef97?w=500&auto=format&fit=crop&q=60"
+    ],
+    "description": "Легендарный сильногазированный освежающий напиток с классическим вкусом. Лучше подавать охлажденным.",
+    "specifications": {
+      "Объем": "1.5 л",
+      "Степень газирования": "Сильногазированный",
+      "Тип тары": "Пластиковая бутылка (ПЭТ)",
+      "Страна-производитель": "Таджикистан"
+    }
+  },
+  {
+    "id": 17,
+    "name": "Вода минеральная лечебно-столовая Шохамбари-2 1.5л",
+    "slug": "voda-mineralnaya-shokhambari-2-1-5l",
+    "categoryId": 6,
+    "subcategoryId": 602,
+    "brand": "Шохамбари",
+    "price": 4,
+    "rating": 4.8,
+    "reviewCount": 15,
+    "isNew": false,
+    "inStock": true,
+    "images": [
+      "https://images.unsplash.com/photo-1608885898957-a599fb1b1a44?w=500&auto=format&fit=crop&q=60"
+    ],
+    "description": "Натуральная газированная лечебно-столовая минеральная вода из источников знаменитого курорта Шохамбари.",
+    "specifications": {
+      "Объем": "1.5 л",
+      "Тип": "Минеральная лечебно-столовая",
+      "Степень газирования": "Газированная",
+      "Страна-производитель": "Таджикистан"
+    }
+  },
+  {
+    "id": 18,
+    "name": "Сок Sandora Мультивитамин 100% 1л",
+    "slug": "sok-sandora-multivitamin-1l",
+    "categoryId": 6,
+    "subcategoryId": 601,
+    "brand": "Sandora",
+    "price": 18,
+    "rating": 4.9,
+    "reviewCount": 21,
+    "isNew": false,
+    "inStock": true,
+    "images": [
+      "https://images.unsplash.com/photo-1621506289937-a8e4df240d0b?w=500&auto=format&fit=crop&q=60"
+    ],
+    "description": "Смесь концентрированных соков тропических и цитрусовых фруктов. Без консервантов и красителей.",
+    "specifications": {
+      "Объем": "1 л",
+      "Вкус": "Мультивитамин (тропический)",
+      "Упаковка": "Тетра Пак",
+      "Страна-производитель": "Украина"
+    }
+  },
+  {
+    "id": 19,
+    "name": "Шоколад молочный Alpen Gold с фундуком 85г",
+    "slug": "shokolad-alpen-gold-s-fundukom-85g",
+    "categoryId": 7,
+    "subcategoryId": 701,
+    "brand": "Alpen Gold",
+    "price": 11,
+    "oldPrice": 13,
+    "discount": 15,
+    "rating": 4.6,
+    "reviewCount": 38,
+    "isNew": false,
+    "inStock": true,
+    "images": [
+      "https://images.unsplash.com/photo-1511381939415-e4401546383a?w=500&auto=format&fit=crop&q=60"
+    ],
+    "description": "Нежный классический молочный шоколад с добавлением дробленого лесного ореха (фундука).",
+    "specifications": {
+      "Вес": "85 г",
+      "Тип шоколада": "Молочный",
+      "Добавки": "Дробленый фундук",
+      "Страна-производитель": "Россия"
+    }
+  },
+  {
+    "id": 20,
+    "name": "Конфеты Raffaello с цельным миндалем 150г",
+    "slug": "konfety-raffaello-150g",
+    "categoryId": 7,
+    "subcategoryId": 702,
+    "brand": "Raffaello",
+    "price": 39,
+    "rating": 4.9,
+    "reviewCount": 45,
+    "isNew": false,
+    "inStock": true,
+    "images": [
+      "https://images.unsplash.com/photo-1548907040-4d42b521251c?w=500&auto=format&fit=crop&q=60"
+    ],
+    "description": "Хрустящие кокосовые конфеты с нежным кремом и цельным миндальным орехом внутри.",
+    "specifications": {
+      "Вес": "150 г",
+      "Тип упаковки": "Картонная коробка",
+      "Состав": "Кокосовая стружка, миндаль, растительные масла",
+      "Страна-производитель": "Россия"
+    }
+  },
+  {
+    "id": 21,
+    "name": "Набор шоколадных конфет Merci Finest Selection 250г",
+    "slug": "nabor-konfet-merci-250g",
+    "categoryId": 7,
+    "subcategoryId": 703,
+    "brand": "Merci",
+    "price": 69,
+    "rating": 5.0,
+    "reviewCount": 28,
+    "isNew": true,
+    "inStock": true,
+    "images": [
+      "https://images.unsplash.com/photo-1581798459219-318e76aecc7b?w=500&auto=format&fit=crop&q=60"
+    ],
+    "description": "Ассорти из 8 изысканных видов немецкого шоколада. Великолепный подарок по любому поводу.",
+    "specifications": {
+      "Вес": "250 г",
+      "Количество видов конфет": "8 видов",
+      "Вид шоколада": "Молочный, темный, белый",
+      "Страна-производитель": "Германия"
+    }
+  },
+  {
+    "id": 22,
+    "name": "Чай черный Tess Pleasure листовой с шиповником и яблоком 100г",
+    "slug": "chay-tess-pleasure-100g",
+    "categoryId": 8,
+    "subcategoryId": 801,
+    "brand": "Tess",
+    "price": 19,
+    "rating": 4.8,
+    "reviewCount": 22,
+    "isNew": false,
+    "inStock": true,
+    "images": [
+      "https://images.unsplash.com/photo-1597481499750-3e6b22637e12?w=500&auto=format&fit=crop&q=60"
+    ],
+    "description": "Чай черный байховый листовой с лепестками цветов, фруктовыми нотками и пряным ароматом шиповника.",
+    "specifications": {
+      "Вес": "100 г",
+      "Сорт чая": "Черный листовой байховый",
+      "Добавки": "Шиповник, яблоко, лепестки василька",
+      "Страна-производитель": "Россия"
+    }
+  },
+  {
+    "id": 23,
+    "name": "Кофе растворимый Jacobs Monarch сублимированный 95г",
+    "slug": "kofe-jacobs-monarch-95g",
+    "categoryId": 8,
+    "subcategoryId": 802,
+    "brand": "Jacobs",
+    "price": 48,
+    "oldPrice": 55,
+    "discount": 12,
+    "rating": 4.7,
+    "reviewCount": 39,
+    "isNew": false,
+    "inStock": true,
+    "images": [
+      "https://images.unsplash.com/photo-1509042239860-f550ce710b93?w=500&auto=format&fit=crop&q=60"
+    ],
+    "description": "Натуральный растворимый сублимированный кофе. Обладает богатым насыщенным вкусом и классическим ароматом Jacobs Monarch.",
+    "specifications": {
+      "Вес": "95 г",
+      "Тип": "Сублимированный растворимый",
+      "Степень обжарки": "Средняя",
+      "Страна-производитель": "Россия"
+    }
+  },
+  {
+    "id": 24,
+    "name": "Какао-порошок Золотой Ярлык традиционный 100г",
+    "slug": "kakao-poroshok-zolotoy-yarlyk-100g",
+    "categoryId": 8,
+    "subcategoryId": 803,
+    "brand": "Красный Октябрь",
+    "price": 15,
+    "rating": 4.8,
+    "reviewCount": 17,
+    "isNew": false,
+    "inStock": true,
+    "images": [
+      "https://images.unsplash.com/photo-1544787219-7f47ccb76574?w=500&auto=format&fit=crop&q=60"
+    ],
+    "description": "Знаменитый советский бренд какао-порошка. Обладает выразительным шоколадным вкусом и ароматом, отлично подходит для варки напитка или глазури.",
+    "specifications": {
+      "Вес": "100 г",
+      "Тип": "Какао-порошок натуральный",
+      "Состав": "Какао-порошок, ароматизатор ванилин",
+      "Страна-производитель": "Россия"
+    }
+  },
+  {
+    "id": 25,
+    "name": "Шпроты в масле Либава из салаки 160г",
+    "slug": "shproty-v-masle-libava-160g",
+    "categoryId": 9,
+    "subcategoryId": 901,
+    "brand": "Либава",
+    "price": 23,
+    "rating": 4.7,
+    "reviewCount": 12,
+    "isNew": false,
+    "inStock": true,
+    "images": [
+      "https://images.unsplash.com/photo-1534422298391-e4f8c172dddb?w=500&auto=format&fit=crop&q=60"
+    ],
+    "description": "Копченая салака в чистом растительном масле. Классическая закуска к столу.",
+    "specifications": {
+      "Вес": "160 г",
+      "Тип консервы": "Рыбные",
+      "Вид рыбы": "Салака",
+      "Страна-производитель": "Латвия"
+    }
+  },
+  {
+    "id": 26,
+    "name": "Говядина тушеная Главпродукт ГОСТ высший сорт 325г",
+    "slug": "govyadina-tushenaya-glavprodukt-325g",
+    "categoryId": 9,
+    "subcategoryId": 902,
+    "brand": "Главпродукт",
+    "price": 26,
+    "rating": 4.5,
+    "reviewCount": 14,
+    "isNew": false,
+    "inStock": true,
+    "images": [
+      "https://images.unsplash.com/photo-1599058917212-d750089bc07e?w=500&auto=format&fit=crop&q=60"
+    ],
+    "description": "Классическая тушеная говядина по ГОСТу с кусковым мясом, лавровым листом и специями.",
+    "specifications": {
+      "Вес": "325 г",
+      "Сорт": "Высший сорт",
+      "Стандарт": "ГОСТ 32125-2013",
+      "Страна-производитель": "Россия"
+    }
+  },
+  {
+    "id": 27,
+    "name": "Горошек зеленый консервированный Bonduelle Нежный 400г",
+    "slug": "goroshek-bonduelle-nezhnyj-400g",
+    "categoryId": 9,
+    "subcategoryId": 903,
+    "brand": "Bonduelle",
+    "price": 16,
+    "oldPrice": 19,
+    "discount": 15,
+    "rating": 4.9,
+    "reviewCount": 29,
+    "isNew": false,
+    "inStock": true,
+    "images": [
+      "https://images.unsplash.com/photo-1592417817098-8f3d6eb19675?w=500&auto=format&fit=crop&q=60"
+    ],
+    "description": "Молодой зеленый горошек мозговых сортов консервации. Нежный сладковатый вкус, без ГМО.",
+    "specifications": {
+      "Вес": "400 г",
+      "Сорт горошка": "Мозговой",
+      "Тип упаковки": "Жестяная банка с ключом",
+      "Страна-производитель": "Россия"
+    }
+  },
+  {
+    "id": 28,
+    "name": "Салат Оливье классический с колбасой собственного приготовления 1кг",
+    "slug": "salat-olive-klassicheskij-1kg",
+    "categoryId": 10,
+    "subcategoryId": 1001,
+    "brand": "Собственная кулинария",
+    "price": 42,
+    "rating": 4.8,
+    "reviewCount": 19,
+    "isNew": true,
+    "inStock": true,
+    "images": [
+      "https://images.unsplash.com/photo-1546069901-ba9599a7e63c?w=500&auto=format&fit=crop&q=60"
+    ],
+    "description": "Традиционный новогодний и праздничный салат Оливье с докторской колбасой, картофелем, солеными огурцами и майонезной заправкой.",
+    "specifications": {
+      "Вес": "1 кг",
+      "Условия хранения": "24 часа при +2...+4°C",
+      "Заправка": "Майонез",
+      "Производитель": "Кулинария Пайкар"
+    }
+  },
+  {
+    "id": 29,
+    "name": "Плов праздничный душанбинский с говядиной 350г (порционный)",
+    "slug": "plov-prazdnichnyj-dushanbinskij-350g",
+    "categoryId": 10,
+    "subcategoryId": 1002,
+    "brand": "Собственная кулинария",
+    "price": 24,
+    "rating": 4.9,
+    "reviewCount": 37,
+    "isNew": true,
+    "inStock": true,
+    "images": [
+      "https://images.unsplash.com/photo-1512058564366-18510be2db19?w=500&auto=format&fit=crop&q=60"
+    ],
+    "description": "Порционный свежий плов из риса Девзира, говядины, желтой моркови, чеснока и национальных приправ. Готов к употреблению.",
+    "specifications": {
+      "Вес": "350 г (одна порция)",
+      "Состав": "Рис, говядина, желтая морковь, лук, нут, зира, специи",
+      "Тип блюда": "Второе блюдо",
+      "Производитель": "Кулинария Пайкар"
+    }
+  },
+  {
+    "id": 30,
+    "name": "Сырники из свежего творога классические 2шт 150г",
+    "slug": "syrniki-klassicheskie-150g",
+    "categoryId": 10,
+    "subcategoryId": 1003,
+    "brand": "Собственная кулинария",
+    "price": 14,
+    "rating": 4.7,
+    "reviewCount": 8,
+    "isNew": false,
+    "inStock": true,
+    "images": [
+      "https://images.unsplash.com/photo-1528207776546-365bb710ee93?w=500&auto=format&fit=crop&q=60"
+    ],
+    "description": "Нежные сырники, приготовленные из свежего натурального творога с легким ароматом ванили. Идеальный завтрак.",
+    "specifications": {
+      "Вес": "150 г",
+      "Количество": "2 шт",
+      "Тип блюда": "Завтрак",
+      "Производитель": "Пекарня Пайкар"
+    }
+  },
+  {
+    "id": 31,
+    "name": "Стиральный порошок Ariel Горный родник автомат 1.5кг",
+    "slug": "stiralnyj-poroshok-ariel-1-5kg",
+    "categoryId": 11,
+    "subcategoryId": 1101,
+    "brand": "Ariel",
+    "price": 59,
+    "rating": 4.8,
+    "reviewCount": 31,
+    "isNew": false,
+    "inStock": true,
+    "images": [
+      "https://images.unsplash.com/photo-1583947215259-38e31be8751f?w=500&auto=format&fit=crop&q=60"
+    ],
+    "description": "Стиральный порошок для стирки белого и светлого белья в стиральных машинах любого типа. Эффективно удаляет загрязнения.",
+    "specifications": {
+      "Вес": "1.5 кг",
+      "Тип стирки": "Автомат",
+      "Назначение": "Для белого и цветного белья",
+      "Страна-производитель": "Россия"
+    }
+  },
+  {
+    "id": 32,
+    "name": "Зубная паста Colgate Тотал Прополис 75мл",
+    "slug": "zubnaya-pasta-colgate-75ml",
+    "categoryId": 11,
+    "subcategoryId": 1102,
+    "brand": "Colgate",
+    "price": 19,
+    "rating": 4.7,
+    "reviewCount": 23,
+    "isNew": false,
+    "inStock": true,
+    "images": [
+      "https://images.unsplash.com/photo-1559056199-641a0ac8b55e?w=500&auto=format&fit=crop&q=60"
+    ],
+    "description": "Зубная паста с фторидом и экстрактом прополиса для защиты десен, укрепления эмали и предотвращения кариеса.",
+    "specifications": {
+      "Объем": "75 мл",
+      "Активные компоненты": "Прополис, фтор",
+      "Эффект": "Комплексный уход",
+      "Страна-производитель": "Китай"
+    }
+  },
+  {
+    "id": 33,
+    "name": "Шампунь Head & Shoulders Основной уход против перхоти 400мл",
+    "slug": "shampun-head-shoulders-400ml",
+    "categoryId": 11,
+    "subcategoryId": 1103,
+    "brand": "Head & Shoulders",
+    "price": 44,
+    "oldPrice": 49,
+    "discount": 10,
+    "rating": 4.8,
+    "reviewCount": 42,
+    "isNew": false,
+    "inStock": true,
+    "images": [
+      "https://images.unsplash.com/photo-1535585209827-a15fcdbc4c2d?w=500&auto=format&fit=crop&q=60"
+    ],
+    "description": "Шампунь против перхоти для нормальных волос. Формула с антиоксидантами бережно ухаживает за кожей головы.",
+    "specifications": {
+      "Объем": "400 мл",
+      "Тип волос": "Для всех типов волос",
+      "Эффект": "Устранение перхоти, очищение",
+      "Страна-производитель": "Франция"
+    }
+  },
+  {
+    "id": 34,
+    "name": "Подгузники Pampers Active Baby размер 4 (9-14кг) 50шт",
+    "slug": "podguzniki-pampers-active-baby-r4-50sht",
+    "categoryId": 12,
+    "subcategoryId": 1201,
+    "brand": "Pampers",
+    "price": 169,
+    "rating": 4.9,
+    "reviewCount": 54,
+    "isNew": false,
+    "inStock": true,
+    "images": [
+      "https://images.unsplash.com/photo-1559599189-fe84dea4eb79?w=500&auto=format&fit=crop&q=60"
+    ],
+    "description": "Детские одноразовые подгузники с надежной защитой от протеканий. Эластичные боковинки и дышащие материалы.",
+    "specifications": {
+      "Количество в упаковке": "50 шт",
+      "Размер": "4 (L, 9-14 кг)",
+      "Пол": "Унисекс",
+      "Страна-производитель": "Польша"
+    }
+  },
+  {
+    "id": 35,
+    "name": "Каша безмолочная ФрутоНяня овсяная быстрорастворимая 200г",
+    "slug": "kasha-frutonyanya-ovsyanaya-200g",
+    "categoryId": 12,
+    "subcategoryId": 1202,
+    "brand": "ФрутоНяня",
+    "price": 16,
+    "rating": 4.8,
+    "reviewCount": 19,
+    "isNew": false,
+    "inStock": true,
+    "images": [
+      "https://images.unsplash.com/photo-1598449356475-b9f71db7d847?w=500&auto=format&fit=crop&q=60"
+    ],
+    "description": "Сухая быстрорастворимая безмолочная овсяная каша для детского питания с 5 месяцев. Обогащена витаминами.",
+    "specifications": {
+      "Вес": "200 г",
+      "Возраст": "С 5 месяцев",
+      "Тип каши": "Безмолочная овсяная",
+      "Страна-производитель": "Россия"
+    }
+  },
+  {
+    "id": 36,
+    "name": "Игрушечная машинка Welly металлическая коллекционная 1шт",
+    "slug": "igrushechnaya-mashinka-welly-1sht",
+    "categoryId": 12,
+    "subcategoryId": 1203,
+    "brand": "Welly",
+    "price": 45,
+    "rating": 4.6,
+    "reviewCount": 11,
+    "isNew": true,
+    "inStock": true,
+    "images": [
+      "https://images.unsplash.com/photo-1581235720704-06d3acfcb36f?w=500&auto=format&fit=crop&q=60"
+    ],
+    "description": "Металлическая масштабированная модель автомобиля высокой детализации. Открывающиеся двери и капот.",
+    "specifications": {
+      "Материал": "Металл, пластик",
+      "Масштаб": "1:34-39",
+      "Возрастные ограничения": "Для детей от 3 лет",
+      "Страна-производитель": "Китай"
+    }
+  }
+]
