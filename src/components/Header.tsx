@@ -1,23 +1,14 @@
 import React, { useState } from 'react'
 import { useNavigate, useLocation } from 'react-router-dom'
+import { motion, AnimatePresence } from 'framer-motion'
 
-import LocationOnIcon from '@mui/icons-material/LocationOn'
-import InfoIcon from '@mui/icons-material/Info'
-import EmailIcon from '@mui/icons-material/Email'
-import PersonIcon from '@mui/icons-material/Person'
-import ExitToAppIcon from '@mui/icons-material/ExitToApp'
 import PhoneIcon from '@mui/icons-material/Phone'
-import SearchIcon from '@mui/icons-material/Search'
 import BarChartIcon from '@mui/icons-material/BarChart'
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart'
 import MenuIcon from '@mui/icons-material/Menu'
-import HomeIcon from '@mui/icons-material/Home'
-import LocalMallIcon from '@mui/icons-material/LocalMall'
 
 import { PaykarLogo } from './Icons'
-import type { CartItem, Product } from '../types'
-import categoriesData from '../data/categories.json'
-import type { Category } from '../types'
+import type { Product } from '../types'
 
 // ─── Props ────────────────────────────────────────────────────────────────────
 
@@ -27,7 +18,7 @@ export interface HeaderProps {
   setLoginModalOpen: (open: boolean) => void
   setCallRequestOpen: (open: boolean) => void
   compareList: Product[]
-  cart: CartItem[]
+  cartCount: number
   handleCartClick: () => void
 }
 
@@ -37,165 +28,233 @@ export const Header: React.FC<HeaderProps> = ({
   isLoggedIn,
   handleLogout,
   setLoginModalOpen,
-  setCallRequestOpen,
   compareList,
-  cart,
+  cartCount,
   handleCartClick,
 }) => {
   const navigate = useNavigate()
   const location = useLocation()
-  const [searchQuery, setSearchQuery] = useState('')
 
-  // Navigate to catalog with optional category filter
-  const goToCategory = (slug: string) => {
-    const cat = (categoriesData as Category[]).find(c => c.slug === slug)
-    if (cat) navigate(`/catalog?cat=${cat.id}`)
-  }
 
-  const handleSearchSubmit = (e: React.FormEvent) => {
-    e.preventDefault()
-    if (searchQuery.trim()) {
-      navigate(`/catalog?q=${encodeURIComponent(searchQuery.trim())}`)
-    }
-  }
+  const [activeDropdown, setActiveDropdown] = useState<string | null>(null)
 
   const isActive = (path: string) => location.pathname === path
 
+  const navLinks = [
+    { label: 'Главная', path: '/', onClick: () => navigate('/') },
+    {
+      label: 'Как купить',
+      path: '/delivery',
+      onClick: () => navigate('/delivery'),
+      match: () => location.pathname === '/delivery',
+     
+    },
+    { label: 'Акции', path: '/promotions', onClick: () => navigate('/promotions') },
+    {
+      label: 'О нас',
+      path: '/about',
+      onClick: () => navigate('/about'),
+      match: () => location.pathname === '/about',
+    
+    },
+    { label: 'Контакты', path: '/contacts', onClick: () => navigate('/contacts'), match: () => isActive('/contacts') },
+  ]
+
   return (
-    <>
-      {/* ── Topbar ─────────────────────────────────────────────────────────── */}
-      <div className="topbar">
-        <div className="container">
-          <div className="topbar-left">
-            <span><LocationOnIcon fontSize="inherit" /> Город: <strong>Душанбе</strong></span>
-            <span>Сеть супермаркетов Пайкар</span>
-          </div>
-          <div className="topbar-right">
-            <button onClick={() => navigate('/delivery')} className="topbar-link">
-              <InfoIcon fontSize="inherit" /> Доставка и оплата
-            </button>
-            <button onClick={() => navigate('/about')} className="topbar-link">
-              <InfoIcon fontSize="inherit" /> О компании
-            </button>
-            <button onClick={() => navigate('/contacts')} className="topbar-link">
-              <EmailIcon fontSize="inherit" /> Контакты
-            </button>
+    <header className="site-header-unified">
+      <div className="container header-unified-container">
+        
+        {/* Left Section: Logo & City */}
+        <div className="header-left">
+          <motion.div 
+            whileHover={{ scale: 1.02 }}
+            className="logo-wrapper"
+          >
+            <PaykarLogo onClick={() => navigate('/')} />
+          </motion.div>
+          
+          
+        </div>
 
+        {/* Center Section: Catalog & Search */}
+        <div className="header-center">
+          <motion.button 
+            whileHover={{ scale: 1.03 }}
+            whileTap={{ scale: 0.97 }}
+            className="catalog-trigger-unified" 
+            onClick={() => navigate('/categories')}
+          >
+            <MenuIcon fontSize="small" />
+            <span>Каталог</span>
+          </motion.button>
+
+         
+        </div>
+
+        {/* Right Section: Navigation Links & Action Controls */}
+        <div className="header-right">
+          <nav className="nav-links-unified" style={{ display: 'flex', gap: '8px', alignItems: 'center' }}>
+            {navLinks.map((link) => {
+              const active = link.match ? link.match() : isActive(link.path)
+              return (
+                <div
+                  key={link.label}
+                  className="nav-link-wrapper"
+                  onMouseEnter={() => setActiveDropdown(link.label)}
+                  onMouseLeave={() => setActiveDropdown(null)}
+                  style={{ position: 'relative', display: 'inline-block', paddingBottom: '12px', marginBottom: '-12px' }}
+                >
+                  <button
+                    className={`nav-link-unified-item ${active ? 'active' : ''}`}
+                    onClick={link.onClick}
+                    style={{ position: 'relative', display: 'flex', alignItems: 'center', gap: '4px' }}
+                  >
+                    {link.label}
+                    {active && (
+                      <motion.span 
+                        layoutId="activeHeaderPillUnified"
+                        className="nav-link-pill-unified"
+                        transition={{ type: 'spring', stiffness: 380, damping: 30 }}
+                      />
+                    )}
+                  </button>
+
+                  <AnimatePresence>
+                    {link.dropdownItems && activeDropdown === link.label && (
+                      <motion.div 
+                        initial={{ opacity: 0, y: 10 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        exit={{ opacity: 0, y: 10 }}
+                        className="nav-dropdown-menu"
+                        style={{
+                          position: 'absolute',
+                          top: '100%',
+                          left: '50%',
+                          transform: 'translateX(-50%)',
+                          background: 'rgba(255, 255, 255, 0.92)',
+                          backdropFilter: 'blur(20px)',
+                          WebkitBackdropFilter: 'blur(20px)',
+                          border: 'var(--border-card)',
+                          borderRadius: 'var(--radius-md)',
+                          boxShadow: 'var(--shadow-glass)',
+                          padding: '8px 0',
+                          minWidth: '180px',
+                          zIndex: 1000,
+                          display: 'flex',
+                          flexDirection: 'column',
+                          marginTop: '4px'
+                        }}
+                      >
+                        {link.dropdownItems.map(item => (
+                          <button 
+                            key={item.label} 
+                            className="dropdown-item" 
+                            onClick={(e) => {
+                              e.stopPropagation()
+                              item.onClick()
+                              setActiveDropdown(null)
+                            }}
+                            style={{
+                              padding: '10px 20px',
+                              background: 'none',
+                              border: 'none',
+                              textAlign: 'left',
+                              fontSize: '13.5px',
+                              fontWeight: 600,
+                              color: 'var(--text-muted)',
+                              cursor: 'pointer',
+                              transition: 'all 0.2s ease',
+                              width: '100%'
+                            }}
+                          >
+                            {item.label}
+                          </button>
+                        ))}
+                      </motion.div>
+                    )}
+                  </AnimatePresence>
+                </div>
+              )
+            })}
+          </nav>
+
+          <div className="header-actions-unified">
+            {/* Compare */}
+            <motion.button 
+              whileHover={{ y: -2 }}
+              whileTap={{ scale: 0.95 }}
+              className="action-btn-unified" 
+              title="Сравнение" 
+              onClick={() => navigate('/compare')}
+            >
+              <BarChartIcon fontSize="small" />
+              <AnimatePresence>
+                {compareList.length > 0 && (
+                  <motion.span 
+                    initial={{ scale: 0 }}
+                    animate={{ scale: 1 }}
+                    exit={{ scale: 0 }}
+                    className="action-badge-unified"
+                  >
+                    {compareList.length}
+                  </motion.span>
+                )}
+              </AnimatePresence>
+            </motion.button>
+
+            {/* Cart */}
+            <motion.button 
+              whileHover={{ y: -2 }}
+              whileTap={{ scale: 0.95 }}
+              className="action-btn-unified cart-btn" 
+              title="Корзина" 
+              onClick={handleCartClick}
+            >
+              <ShoppingCartIcon fontSize="small" />
+              <AnimatePresence>
+                {cartCount > 0 && (
+                  <motion.span 
+                    initial={{ scale: 0 }}
+                    animate={{ scale: 1 }}
+                    exit={{ scale: 0 }}
+                    className="action-badge-unified"
+                  >
+                    {cartCount}
+                  </motion.span>
+                )}
+              </AnimatePresence>
+            </motion.button>
+
+            {/* Phone shortcode */}
+            <a href="tel:4400" className="phone-shortcode" title="Позвонить: 4400">
+              <PhoneIcon fontSize="small" />
+              <span>4400</span>
+            </a>
+
+            {/* Auth button */}
             {isLoggedIn ? (
-              <button onClick={handleLogout} className="topbar-link" style={{ color: '#ef5350', fontWeight: 'bold' }}>
-                <ExitToAppIcon fontSize="inherit" /> Выйти
-              </button>
+              <motion.button 
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+                onClick={handleLogout} 
+                className="auth-btn-unified logout"
+              >
+                Выйти
+              </motion.button>
             ) : (
-              <button onClick={() => setLoginModalOpen(true)} className="topbar-link" style={{ fontWeight: 'bold' }}>
-                <PersonIcon fontSize="inherit" /> Войти
-              </button>
+              <motion.button 
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+                onClick={() => setLoginModalOpen(true)} 
+                className="auth-btn-unified login"
+              >
+                Войти
+              </motion.button>
             )}
-
-            <span className="topbar-phone"><PhoneIcon fontSize="inherit" /> 4400</span>
           </div>
         </div>
+
       </div>
-
-      {/* ── Midbar ─────────────────────────────────────────────────────────── */}
-      <div className="midbar">
-        <div className="container">
-          <PaykarLogo onClick={() => navigate('/')} />
-
-          {/* Search */}
-          <form className="search-container" onSubmit={handleSearchSubmit}>
-            <input
-              type="text"
-              className="search-input"
-              placeholder="Поиск продуктов..."
-              value={searchQuery}
-              onChange={e => setSearchQuery(e.target.value)}
-            />
-            <button type="submit" className="search-button">
-              <SearchIcon />
-            </button>
-          </form>
-
-          {/* Call widget */}
-          <div className="contact-call">
-            <span className="call-number">+992 44 630 2020</span>
-            <button className="call-request" onClick={() => setCallRequestOpen(true)}>
-              ЗАКАЗАТЬ ЗВОНОК
-            </button>
-          </div>
-
-          {/* Action buttons */}
-          <div className="actions-container">
-            <button className="action-btn" title="Сравнение" onClick={() => navigate('/compare')}>
-              <BarChartIcon />
-              {compareList.length > 0 && <span className="action-badge">{compareList.length}</span>}
-            </button>
-            <button className="action-btn" title="Корзина" onClick={handleCartClick}>
-              <ShoppingCartIcon />
-              {cart.length > 0 && <span className="action-badge">{cart.reduce((s, i) => s + i.quantity, 0)}</span>}
-            </button>
-          </div>
-        </div>
-      </div>
-
-      {/* ── Navbar ─────────────────────────────────────────────────────────── */}
-      <nav className="navbar">
-        <div className="container">
-          <button className="catalog-trigger" onClick={() => navigate('/catalog')}>
-            <MenuIcon fontSize="small" /> КАТАЛОГ
-          </button>
-
-          <ul className="nav-links">
-            <li>
-              <button
-                className={`nav-link ${isActive('/') ? 'active' : ''}`}
-                onClick={() => navigate('/')}
-              >
-                <HomeIcon fontSize="inherit" /> Главная
-              </button>
-            </li>
-            <li>
-              <button
-                className={`nav-link ${location.pathname === '/catalog' && location.search.includes('gotovaya-eda') ? 'active' : ''}`}
-                onClick={() => goToCategory('gotovaya-eda')}
-              >
-                <LocalMallIcon fontSize="inherit" /> Готовая еда
-              </button>
-            </li>
-            <li>
-              <button
-                className={`nav-link ${location.pathname === '/catalog' && location.search.includes('hleb-i-vypechka') ? 'active' : ''}`}
-                onClick={() => goToCategory('hleb-i-vypechka')}
-              >
-                <LocalMallIcon fontSize="inherit" /> Выпечка
-              </button>
-            </li>
-            <li>
-              <button
-                className={`nav-link ${isActive('/delivery') ? 'active' : ''}`}
-                onClick={() => navigate('/delivery')}
-              >
-                Доставка
-              </button>
-            </li>
-            <li>
-              <button
-                className={`nav-link ${isActive('/about') ? 'active' : ''}`}
-                onClick={() => navigate('/about')}
-              >
-                О нас
-              </button>
-            </li>
-            <li>
-              <button
-                className={`nav-link ${isActive('/contacts') ? 'active' : ''}`}
-                onClick={() => navigate('/contacts')}
-              >
-                Контакты
-              </button>
-            </li>
-          </ul>
-        </div>
-      </nav>
-    </>
+    </header>
   )
 }

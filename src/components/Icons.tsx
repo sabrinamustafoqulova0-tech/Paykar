@@ -19,6 +19,8 @@ import FastfoodIcon from '@mui/icons-material/Fastfood'
 import SpaIcon from '@mui/icons-material/Spa'
 import ChildCareIcon from '@mui/icons-material/ChildCare'
 import LocalMallIcon from '@mui/icons-material/LocalMall'
+import PetsIcon from '@mui/icons-material/Pets'
+import SetMealIcon from '@mui/icons-material/SetMeal'
 
 // Dynamic icon mapping components to replace emojis completely
 export const CategoryIcon: React.FC<{ slug: string; fontSize?: 'inherit' | 'small' | 'medium' | 'large'; style?: React.CSSProperties }> = ({ slug, fontSize = 'medium', style }) => {
@@ -47,6 +49,14 @@ export const CategoryIcon: React.FC<{ slug: string; fontSize?: 'inherit' | 'smal
       return <SpaIcon fontSize={fontSize} style={style} />
     case 'vse-dlya-detey':
       return <ChildCareIcon fontSize={fontSize} style={style} />
+    case 'myasnaya-gastronomiya':
+      return <RestaurantMenuIcon fontSize={fontSize} style={style} />
+    case 'polufabrikaty-moreprodukty':
+      return <SetMealIcon fontSize={fontSize} style={style} />
+    case 'sneki':
+      return <FastfoodIcon fontSize={fontSize} style={style} />
+    case 'dlya-zhivotnykh':
+      return <PetsIcon fontSize={fontSize} style={style} />
     default:
       return <LocalMallIcon fontSize={fontSize} style={style} />
   }

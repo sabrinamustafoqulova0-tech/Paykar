@@ -1,11 +1,12 @@
 import React from 'react'
+import { motion } from 'framer-motion'
 import CloseIcon from '@mui/icons-material/Close'
 
 export interface LoginModalProps {
   open: boolean
   onClose: () => void
   loginForm: { phone: string; password: string }
-  setLoginForm: React.Dispatch<React.SetStateAction<{ phone: string; password: string }>>
+  setLoginForm: (form: { phone: string; password: string }) => void
   onSubmit: (e: React.FormEvent) => void
 }
 
@@ -19,13 +20,26 @@ export const LoginModal: React.FC<LoginModalProps> = ({
   if (!open) return null
 
   return (
-    <div className="modal-overlay" onClick={onClose}>
-      <div className="login-card" onClick={(e) => e.stopPropagation()}>
+    <motion.div 
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0 }}
+      className="modal-overlay" 
+      onClick={onClose}
+    >
+      <motion.div 
+        initial={{ opacity: 0, scale: 0.9, y: 20 }}
+        animate={{ opacity: 1, scale: 1, y: 0 }}
+        exit={{ opacity: 0, scale: 0.9, y: 20 }}
+        transition={{ type: 'spring', stiffness: 350, damping: 25 }}
+        className="login-card" 
+        onClick={(e) => e.stopPropagation()}
+      >
         <button className="modal-close" onClick={onClose}>
           <CloseIcon fontSize="small" />
         </button>
-        <div className="logo" style={{ justifyContent: 'center', marginBottom: '20px' }}>
-          <svg viewBox="0 0 100 100" style={{ width: '56px', height: '56px', flexShrink: 0 }}>
+        <div className="logo" style={{ justifyContent: 'center', marginBottom: '24px' }}>
+          <svg viewBox="0 0 100 100" style={{ width: '64px', height: '64px', flexShrink: 0 }}>
             <g transform="translate(50, 50)">
               {[0, 72, 144, 216, 288].map((angle, idx) => (
                 <g key={idx} transform={`rotate(${angle})`}>
@@ -62,9 +76,16 @@ export const LoginModal: React.FC<LoginModalProps> = ({
               onChange={(e) => setLoginForm({ ...loginForm, password: e.target.value })}
             />
           </div>
-          <button type="submit" className="login-submit-btn">Войти</button>
+          <motion.button 
+            whileHover={{ scale: 1.02 }}
+            whileTap={{ scale: 0.98 }}
+            type="submit" 
+            className="login-submit-btn"
+          >
+            Войти
+          </motion.button>
         </form>
-      </div>
-    </div>
+      </motion.div>
+    </motion.div>
   )
 }

@@ -840,5 +840,1016 @@
       "Возрастные ограничения": "Для детей от 3 лет",
       "Страна-производитель": "Китай"
     }
+  },
+  {
+    "id": 37,
+    "name": "Сосиски Молочные Пайкар Классические 400г",
+    "slug": "sosiski-molochnye-paykar-klassicheskie-400g",
+    "categoryId": 13,
+    "subcategoryId": 1301,
+    "brand": "Собственное производство",
+    "price": 28,
+    "rating": 4.9,
+    "reviewCount": 18,
+    "isNew": true,
+    "inStock": true,
+    "images": [
+      "https://images.unsplash.com/photo-1541048619883-786ebe24f809?w=500&auto=format&fit=crop&q=60"
+    ],
+    "description": "Нежные молочные сосиски из свежей говядины и птицы с добавлением натурального молока и ароматных специй.",
+    "specifications": {
+      "Вес": "400 г",
+      "Тип упаковки": "Вакуумная упаковка",
+      "Состав": "Говядина, мясо птицы, сухое молоко, специи",
+      "Стандарт": "Халяль"
+    }
+  },
+  {
+    "id": 38,
+    "name": "Колбаса Докторская вареная Пайкар ГОСТ 500г",
+    "slug": "kolbasa-doktorskaya-varenaya-paykar-500g",
+    "categoryId": 13,
+    "subcategoryId": 1302,
+    "brand": "Собственное производство",
+    "price": 38,
+    "rating": 4.8,
+    "reviewCount": 14,
+    "isNew": false,
+    "inStock": true,
+    "images": [
+      "https://images.unsplash.com/photo-1629814234054-d313d499c52c?w=500&auto=format&fit=crop&q=60"
+    ],
+    "description": "Классическая вареная докторская колбаса высшего качества, изготовленная по строгому стандарту ГОСТ.",
+    "specifications": {
+      "Вес": "500 г",
+      "Оболочка": "Искусственная",
+      "Качество": "ГОСТ, Халяль",
+      "Срок годности": "30 суток"
+    }
+  },
+  {
+    "id": 39,
+    "name": "Колбаса Полукопченая Мусульманская Таврия 400г",
+    "slug": "kolbasa-polukopchenaya-musulmanskaya-tavriya-400g",
+    "categoryId": 13,
+    "subcategoryId": 1302,
+    "brand": "Таврия",
+    "price": 42,
+    "oldPrice": 48,
+    "discount": 12,
+    "rating": 4.7,
+    "reviewCount": 9,
+    "isNew": false,
+    "inStock": true,
+    "images": [
+      "https://images.unsplash.com/photo-1534422298391-e4f8c172dddb?w=500&auto=format&fit=crop&q=60"
+    ],
+    "description": "Ароматная полукопченая колбаса с добавлением отборных восточных специй и чеснока.",
+    "specifications": {
+      "Вес": "400 г",
+      "Степень копчения": "Полукопченая",
+      "Стандарт": "Халяль",
+      "Страна-производитель": "Россия"
+    }
+  },
+  {
+    "id": 40,
+    "name": "Балык Говяжий копчено-вареный 300г",
+    "slug": "balyk-govyazhij-kopcheno-varenyj-300g",
+    "categoryId": 13,
+    "subcategoryId": 1303,
+    "brand": "Собственное производство",
+    "price": 49,
+    "rating": 4.9,
+    "reviewCount": 7,
+    "isNew": true,
+    "inStock": true,
+    "images": [
+      "https://images.unsplash.com/photo-1608897013039-887f21d8c804?w=500&auto=format&fit=crop&q=60"
+    ],
+    "description": "Элитный мясной деликатес из нежной говяжьей вырезки, приготовленный методом натурального копчения.",
+    "specifications": {
+      "Вес": "300 г",
+      "Вид мяса": "Говядина",
+      "Состояние": "Копчено-вареный",
+      "Производство": "Пайкар Деликатесы"
+    }
+  },
+  {
+    "id": 41,
+    "name": "Креветки Королевские замороженные 500г",
+    "slug": "krevetki-korolevskie-zamorozhennye-500g",
+    "categoryId": 14,
+    "subcategoryId": 1401,
+    "brand": "Импорт",
+    "price": 89,
+    "rating": 4.8,
+    "reviewCount": 22,
+    "isNew": true,
+    "inStock": true,
+    "images": [
+      "https://images.unsplash.com/photo-1565557623262-b51c2513a641?w=500&auto=format&fit=crop&q=60"
+    ],
+    "description": "Крупные королевские креветки свежезамороженные с головой. Идеально подходят для варки или жарки на гриле.",
+    "specifications": {
+      "Вес": "500 г",
+      "Калибр": "50/70 шт на кг",
+      "Тип заморозки": "Шоковая",
+      "Страна-импортер": "Индия"
+    }
+  },
+  {
+    "id": 42,
+    "name": "Пельмени Домашние Халяль Пайкар 800г",
+    "slug": "pelmeni-domashnie-khalyal-paykar-800g",
+    "categoryId": 14,
+    "subcategoryId": 1402,
+    "brand": "Собственное производство",
+    "price": 39,
+    "rating": 4.9,
+    "reviewCount": 31,
+    "isNew": false,
+    "inStock": true,
+    "images": [
+      "https://images.unsplash.com/photo-1563379091339-03b21ab4a4f8?w=500&auto=format&fit=crop&q=60"
+    ],
+    "description": "Сытные пельмени ручной лепки из тонкого теста с сочной начинкой из говяжьего фарша и лука.",
+    "specifications": {
+      "Вес": "800 г",
+      "Тип начинки": "Свежая говядина",
+      "Заморозка": "Быстрая сухая",
+      "Стандарт": "Халяль"
+    }
+  },
+  {
+    "id": 43,
+    "name": "Стейк Лосося замороженный премиум 500г",
+    "slug": "stejk-lososya-zamorozhennyj-premium-500g",
+    "categoryId": 14,
+    "subcategoryId": 1403,
+    "brand": "Океан",
+    "price": 125,
+    "rating": 5.0,
+    "reviewCount": 15,
+    "isNew": true,
+    "inStock": true,
+    "images": [
+      "https://images.unsplash.com/photo-1519708227418-c8fd9a32b7a2?w=500&auto=format&fit=crop&q=60"
+    ],
+    "description": "Премиальный стейк атлантического лосося (семги). Богат омега-3 жирными кислотами, нежнейшая текстура.",
+    "specifications": {
+      "Вес": "500 г",
+      "Вид рыбы": "Лосось (семга)",
+      "Разделка": "Стейк на коже",
+      "Страна-производитель": "Норвегия"
+    }
+  },
+  {
+    "id": 44,
+    "name": "Форель слабосоленая филе-кусок 200г",
+    "slug": "forel-slabosolenaya-file-kusok-200g",
+    "categoryId": 14,
+    "subcategoryId": 1403,
+    "brand": "Меридиан",
+    "price": 49,
+    "rating": 4.8,
+    "reviewCount": 11,
+    "isNew": false,
+    "inStock": true,
+    "images": [
+      "https://images.unsplash.com/photo-1544025162-d76694265947?w=500&auto=format&fit=crop&q=60"
+    ],
+    "description": "Слабосоленое филе радужной форели. Отличная закуска для праздничного стола или бутербродов к завтраку.",
+    "specifications": {
+      "Вес": "200 г",
+      "Вид рыбы": "Радужная форель",
+      "Посол": "Слабосоленая",
+      "Страна-производитель": "Россия"
+    }
+  },
+  {
+    "id": 45,
+    "name": "Семечки Джинн соленые жареные 250г",
+    "slug": "semechki-dzhinn-solenye-zharenye-250g",
+    "categoryId": 15,
+    "subcategoryId": 1501,
+    "brand": "Джинн",
+    "price": 14,
+    "rating": 4.8,
+    "reviewCount": 45,
+    "isNew": false,
+    "inStock": true,
+    "images": [
+      "https://images.unsplash.com/photo-1596727147705-61a532a659bd?w=500&auto=format&fit=crop&q=60"
+    ],
+    "description": "Крупные жареные семечки подсолнечника с добавлением морской соли.",
+    "specifications": {
+      "Вес": "250 г",
+      "Тип": "Черные семечки",
+      "Обработка": "Жареные с солью",
+      "Страна-производитель": "Россия"
+    }
+  },
+  {
+    "id": 46,
+    "name": "Чипсы Lay's Сметана и Зелень 140г",
+    "slug": "chipsy-lays-smetana-i-zelen-140g",
+    "categoryId": 15,
+    "subcategoryId": 1502,
+    "brand": "Lay's",
+    "price": 16,
+    "oldPrice": 18,
+    "discount": 11,
+    "rating": 4.9,
+    "reviewCount": 89,
+    "isNew": false,
+    "inStock": true,
+    "images": [
+      "https://images.unsplash.com/photo-1566478431375-738562316e6b?w=500&auto=format&fit=crop&q=60"
+    ],
+    "description": "Золотистые хрустящие чипсы из натурального картофеля со вкусом нежной сметаны и свежей зелени.",
+    "specifications": {
+      "Вес": "140 г",
+      "Вкус": "Сметана и зелень",
+      "Сырье": "Натуральный картофель",
+      "Страна-производитель": "Россия"
+    }
+  },
+  {
+    "id": 47,
+    "name": "Чипсы Pringles Original классические 165г",
+    "slug": "chipsy-pringles-original-165g",
+    "categoryId": 15,
+    "subcategoryId": 1502,
+    "brand": "Pringles",
+    "price": 32,
+    "rating": 4.7,
+    "reviewCount": 42,
+    "isNew": false,
+    "inStock": true,
+    "images": [
+      "https://images.unsplash.com/photo-1518047601542-79f18c655718?w=500&auto=format&fit=crop&q=60"
+    ],
+    "description": "Легендарные ровные чипсы в тубе с классическим оригинальным вкусом. Мировой стандарт снеков.",
+    "specifications": {
+      "Вес": "165 г",
+      "Вкус": "Original (классический соленый)",
+      "Упаковка": "Плотный картонный тубус",
+      "Страна-производитель": "Бельгия"
+    }
+  },
+  {
+    "id": 48,
+    "name": "Сухой корм Whiskas для кошек с говядиной 1.9кг",
+    "slug": "sukhoj-korm-whiskas-dlya-koshek-govyadina-1-9kg",
+    "categoryId": 16,
+    "subcategoryId": 1601,
+    "brand": "Whiskas",
+    "price": 65,
+    "rating": 4.8,
+    "reviewCount": 27,
+    "isNew": false,
+    "inStock": true,
+    "images": [
+      "https://images.unsplash.com/photo-1589924691995-400dc9ecc119?w=500&auto=format&fit=crop&q=60"
+    ],
+    "description": "Полнорационный сухой корм Whiskas с говядиной и полезными подушечками для взрослых кошек старше 1 года.",
+    "specifications": {
+      "Вес": "1.9 кг",
+      "Вкус": "Говядина",
+      "Возраст животного": "От 1 года",
+      "Страна-производитель": "Россия"
+    }
+  },
+  {
+    "id": 49,
+    "name": "Влажный корм Felix для кошек с курицей в желе 85г",
+    "slug": "vlazhnyj-korm-felix-kuritsa-zhele-85g",
+    "categoryId": 16,
+    "subcategoryId": 1601,
+    "brand": "Felix",
+    "price": 6,
+    "rating": 4.9,
+    "reviewCount": 54,
+    "isNew": false,
+    "inStock": true,
+    "images": [
+      "https://images.unsplash.com/photo-1601758228041-f3b2795255f1?w=500&auto=format&fit=crop&q=60"
+    ],
+    "description": "Консервированный корм Felix Аппетитные кусочки с нежным вкусом курицы в ароматном сочном желе.",
+    "specifications": {
+      "Вес": "85 г",
+      "Консистенция": "Кусочки в желе",
+      "Вкус": "Курица",
+      "Страна-производитель": "Россия"
+    }
+  },
+  {
+    "id": 50,
+    "name": "Сухой корм Pedigree для взрослых собак всех пород 2.2кг",
+    "slug": "sukhoj-korm-pedigree-sobak-2-2kg",
+    "categoryId": 16,
+    "subcategoryId": 1602,
+    "brand": "Pedigree",
+    "price": 72,
+    "rating": 4.7,
+    "reviewCount": 16,
+    "isNew": false,
+    "inStock": true,
+    "images": [
+      "https://images.unsplash.com/photo-1583337130417-3346a1be7dee?w=500&auto=format&fit=crop&q=60"
+    ],
+    "description": "Полезный сбалансированный сухой корм Pedigree с говядиной для здоровья вашей собаки.",
+    "specifications": {
+      "Вес": "2.2 кг",
+      "Назначение": "Для взрослых собак всех пород",
+      "Вкус": "Говядина",
+      "Страна-производитель": "Россия"
+    }
+  },
+  {
+    "id": 51,
+    "name": "Наполнитель Pi-Pi-Bent классический 5кг",
+    "slug": "napolnitel-pi-pi-bent-klassicheskij-5kg",
+    "categoryId": 16,
+    "subcategoryId": 1603,
+    "brand": "Pi-Pi-Bent",
+    "price": 49,
+    "rating": 4.9,
+    "reviewCount": 21,
+    "isNew": true,
+    "inStock": true,
+    "images": [
+      "https://images.unsplash.com/photo-1548767797-d8c844163c4c?w=500&auto=format&fit=crop&q=60"
+    ],
+    "description": "Натуральный комкующийся бентонитовый наполнитель для кошачьего туалета. Эффективно поглощает запахи и влагу.",
+    "specifications": {
+      "Вес": "5 кг",
+      "Тип": "Комкующийся бентонитовый",
+      "Аромат": "Без ароматизатора",
+      "Страна-производитель": "Россия"
+    }
+  },
+  {
+    "id": 52,
+    "name": "Сыр Пармезан Dolce Granto 200г",
+    "slug": "syr-parmezan-dolce-granto-200g",
+    "categoryId": 1,
+    "subcategoryId": 101,
+    "brand": "Dolce Granto",
+    "price": 42,
+    "oldPrice": 48,
+    "discount": 12,
+    "rating": 4.9,
+    "reviewCount": 18,
+    "isNew": true,
+    "inStock": true,
+    "images": [
+      "https://images.unsplash.com/photo-1486887396153-fa416525c108?w=500&auto=format&fit=crop&q=60"
+    ],
+    "description": "Классический твердый сыр длительного созревания с пикантным ароматом и благородным вкусом Пармезана.",
+    "specifications": {
+      "Вес": "200 г",
+      "Жирность": "40%",
+      "Страна-производитель": "Россия"
+    }
+  },
+  {
+    "id": 53,
+    "name": "Йогурт питьевой Epica Персик-Маракуйя 290г",
+    "slug": "yogurt-pitevoj-epica-persik-marakujya-290g",
+    "categoryId": 1,
+    "subcategoryId": 104,
+    "brand": "Epica",
+    "price": 9,
+    "rating": 4.8,
+    "reviewCount": 32,
+    "isNew": false,
+    "inStock": true,
+    "images": [
+      "https://images.unsplash.com/photo-1571244856053-1a5a9cbde9f2?w=500&auto=format&fit=crop&q=60"
+    ],
+    "description": "Густой питьевой йогурт с высоким содержанием белка и сочными кусочками спелого персика и маракуйи.",
+    "specifications": {
+      "Вес": "290 г",
+      "Жирность": "2.5%",
+      "Белки": "7.4 г на 100 г",
+      "Страна-производитель": "Россия"
+    }
+  },
+  {
+    "id": 54,
+    "name": "Багет французский хрустящий 200г",
+    "slug": "baget-frantsuzskij-khrustyashchij-200g",
+    "categoryId": 3,
+    "subcategoryId": 303,
+    "brand": "Собственное производство",
+    "price": 4,
+    "rating": 4.9,
+    "reviewCount": 40,
+    "isNew": true,
+    "inStock": true,
+    "images": [
+      "https://images.unsplash.com/photo-1509440159596-0249088772ff?w=500&auto=format&fit=crop&q=60"
+    ],
+    "description": "Традиционный французский багет с золотистой хрустящей корочкой и воздушным мякишем из собственной пекарни.",
+    "specifications": {
+      "Вес": "200 г",
+      "Тип муки": "Пшеничная высшего сорта",
+      "Пекарня": "Супермаркет Пайкар"
+    }
+  },
+  {
+    "id": 55,
+    "name": "Бананы спелые Эквадор 1кг",
+    "slug": "banany-spelye-ekvador-1kg",
+    "categoryId": 4,
+    "subcategoryId": 402,
+    "brand": "Импорт",
+    "price": 22,
+    "rating": 4.8,
+    "reviewCount": 110,
+    "isNew": false,
+    "inStock": true,
+    "images": [
+      "https://images.unsplash.com/photo-1571771894821-ce9b6c11b08e?w=500&auto=format&fit=crop&q=60"
+    ],
+    "description": "Сладкие и ароматные спелые бананы из солнечного Эквадора. Идеальный полезный перекус для детей и взрослых.",
+    "specifications": {
+      "Вес": "1 кг",
+      "Страна-производитель": "Эквадор"
+    }
+  },
+  {
+    "id": 56,
+    "name": "Апельсины сочные Египет 1кг",
+    "slug": "apelsiny-sochnye-egipet-1kg",
+    "categoryId": 4,
+    "subcategoryId": 402,
+    "brand": "Импорт",
+    "price": 18,
+    "oldPrice": 22,
+    "discount": 18,
+    "rating": 4.7,
+    "reviewCount": 65,
+    "isNew": false,
+    "inStock": true,
+    "images": [
+      "https://images.unsplash.com/photo-1611080626919-7cf5a9dbab5b?w=500&auto=format&fit=crop&q=60"
+    ],
+    "description": "Свежие, сочные апельсины с тонкой кожурой. Прекрасно подходят для приготовления фрешей и десертов.",
+    "specifications": {
+      "Вес": "1 кг",
+      "Сорт": "Валенсия",
+      "Страна-производитель": "Египет"
+    }
+  },
+  {
+    "id": 57,
+    "name": "Рис Басмати Мистраль 500г",
+    "slug": "ris-basmati-mistral-500g",
+    "categoryId": 5,
+    "subcategoryId": 501,
+    "brand": "Мистраль",
+    "price": 24,
+    "rating": 4.9,
+    "reviewCount": 14,
+    "isNew": false,
+    "inStock": true,
+    "images": [
+      "https://images.unsplash.com/photo-1586201375761-83865001e31c?w=500&auto=format&fit=crop&q=60"
+    ],
+    "description": "Элитный длиннозерный рис Басмати. При варке зерна удлиняются почти в два раза, оставаясь рассыпчатыми.",
+    "specifications": {
+      "Вес": "500 г",
+      "Тип риса": "Басмати",
+      "Страна-производитель": "Индия"
+    }
+  },
+  {
+    "id": 58,
+    "name": "Масло подсолнечное Слобода Рафинированное 1л",
+    "slug": "maslo-podsolnechnoe-sloboda-1l",
+    "categoryId": 5,
+    "subcategoryId": 504,
+    "brand": "Слобода",
+    "price": 19,
+    "rating": 4.8,
+    "reviewCount": 88,
+    "isNew": false,
+    "inStock": true,
+    "images": [
+      "https://images.unsplash.com/photo-1474979266404-7eaacbcd87c5?w=500&auto=format&fit=crop&q=60"
+    ],
+    "description": "Высокоочищенное рафинированное подсолнечное масло высшего сорта с естественным содержанием витамина E.",
+    "specifications": {
+      "Объем": "1 л",
+      "Тип масла": "Подсолнечное рафинированное",
+      "Страна-производитель": "Россия"
+    }
+  },
+  {
+    "id": 59,
+    "name": "Сок Sandora Мультифрукт 1л",
+    "slug": "sok-sandora-multifrukt-1l",
+    "categoryId": 6,
+    "subcategoryId": 601,
+    "brand": "Sandora",
+    "price": 16,
+    "rating": 4.9,
+    "reviewCount": 42,
+    "isNew": false,
+    "inStock": true,
+    "images": [
+      "https://images.unsplash.com/photo-1613478223719-2ab802602423?w=500&auto=format&fit=crop&q=60"
+    ],
+    "description": "Насыщенный натуральный нектар из смеси отборных тропических фруктов без добавления консервантов.",
+    "specifications": {
+      "Объем": "1 л",
+      "Тип": "Мультифрукт нектар",
+      "Упаковка": "Тетра Пак"
+    }
+  },
+  {
+    "id": 60,
+    "name": "Кока-Кола Классик 1.5л пластик",
+    "slug": "koka-kola-klassik-1-5l",
+    "categoryId": 6,
+    "subcategoryId": 603,
+    "brand": "Coca-Cola",
+    "price": 11,
+    "rating": 4.8,
+    "reviewCount": 190,
+    "isNew": false,
+    "inStock": true,
+    "images": [
+      "https://images.unsplash.com/photo-1622483767028-3f66f32aef97?w=500&auto=format&fit=crop&q=60"
+    ],
+    "description": "Освежающий газированный напиток Coca-Cola Classic с легендарным карамельным вкусом.",
+    "specifications": {
+      "Объем": "1.5 л",
+      "Тип упаковки": "Пластиковая бутылка",
+      "Страна-производитель": "Таджикистан"
+    }
+  },
+  {
+    "id": 61,
+    "name": "Шоколад Ritter Sport с цельным лесным орехом 100г",
+    "slug": "shokolad-ritter-sport-lesnoj-oreh-100g",
+    "categoryId": 7,
+    "subcategoryId": 701,
+    "brand": "Ritter Sport",
+    "price": 19,
+    "oldPrice": 22,
+    "discount": 13,
+    "rating": 4.9,
+    "reviewCount": 78,
+    "isNew": false,
+    "inStock": true,
+    "images": [
+      "https://images.unsplash.com/photo-1548907040-4d42b52125e0?w=500&auto=format&fit=crop&q=60"
+    ],
+    "description": "Легендарный молочный шоколад квадратной формы с большим количеством цельного хрустящего фундука.",
+    "specifications": {
+      "Вес": "100 г",
+      "Содержание какао": "не менее 30%",
+      "Страна-производитель": "Германия"
+    }
+  },
+  {
+    "id": 62,
+    "name": "Конфеты Raffaello с цельным миндалем 150г",
+    "slug": "konfety-raffaello-mindal-150g",
+    "categoryId": 7,
+    "subcategoryId": 703,
+    "brand": "Raffaello",
+    "price": 39,
+    "rating": 4.9,
+    "reviewCount": 95,
+    "isNew": true,
+    "inStock": true,
+    "images": [
+      "https://images.unsplash.com/photo-1548907040-4d42b52125e0?w=500&auto=format&fit=crop&q=60"
+    ],
+    "description": "Нежные хрустящие кокосовые конфеты со сливками и цельным миндальным орехом внутри.",
+    "specifications": {
+      "Вес": "150 г",
+      "Тип упаковки": "Картонная коробка",
+      "Страна-производитель": "Италия"
+    }
+  },
+  {
+    "id": 63,
+    "name": "Чай зеленый Greenfield Flying Dragon 25 пак",
+    "slug": "chaj-zelenyj-greenfield-flying-dragon-25-pak",
+    "categoryId": 8,
+    "subcategoryId": 801,
+    "brand": "Greenfield",
+    "price": 15,
+    "rating": 4.8,
+    "reviewCount": 36,
+    "isNew": false,
+    "inStock": true,
+    "images": [
+      "https://images.unsplash.com/photo-1576092768241-dec231879fc3?w=500&auto=format&fit=crop&q=60"
+    ],
+    "description": "Благородный китайский плантационный зеленый чай с мягким освежающим вкусом и тонким ароматом цветов.",
+    "specifications": {
+      "Количество пакетиков": "25 шт",
+      "Тип чая": "Зеленый байховый пакетированный",
+      "Страна-производитель": "Россия"
+    }
+  },
+  {
+    "id": 64,
+    "name": "Салат Цезарь с курицей кулинария 250г",
+    "slug": "salat-tsezar-s-kuritsej-250g",
+    "categoryId": 10,
+    "subcategoryId": 1001,
+    "brand": "Собственное производство",
+    "price": 28,
+    "rating": 4.7,
+    "reviewCount": 22,
+    "isNew": true,
+    "inStock": true,
+    "images": [
+      "https://images.unsplash.com/photo-1550304943-4f24f54ddde9?w=500&auto=format&fit=crop&q=60"
+    ],
+    "description": "Свежий салат Цезарь с сочным обжаренным куриным филе, хрустящими гренками, сыром Пармезан и фирменным соусом.",
+    "specifications": {
+      "Вес": "250 г",
+      "Срок годности": "12 часов",
+      "Кулинария": "Супермаркет Пайкар"
+    }
+  },
+  {
+    "id": 65,
+    "name": "Сосиски Молочные Пайкар Кулинария 500г",
+    "slug": "sosiski-molochnye-paykar-500g",
+    "categoryId": 13,
+    "subcategoryId": 1301,
+    "brand": "Собственное производство",
+    "price": 32,
+    "oldPrice": 36,
+    "discount": 11,
+    "rating": 4.8,
+    "reviewCount": 17,
+    "isNew": true,
+    "inStock": true,
+    "images": [
+      "https://images.unsplash.com/photo-1585325701165-351af916e5ec?w=500&auto=format&fit=crop&q=60"
+    ],
+    "description": "Нежные молочные сосиски из натуральной говядины и куриного фарша от кулинарного цеха Пайкар.",
+    "specifications": {
+      "Вес": "500 г",
+      "Оболочка": "Целлофановая",
+      "Производитель": "Мясной цех Пайкар"
+    }
+  },
+  {
+    "id": 66,
+    "name": "Колбаса Докторская вареная ГОСТ 400г",
+    "slug": "kolbasa-doktorskaya-varenaya-gost-400g",
+    "categoryId": 13,
+    "subcategoryId": 1302,
+    "brand": "Собственное производство",
+    "price": 36,
+    "rating": 4.7,
+    "reviewCount": 29,
+    "isNew": false,
+    "inStock": true,
+    "images": [
+      "https://images.unsplash.com/photo-1585325701165-351af916e5ec?w=500&auto=format&fit=crop&q=60"
+    ],
+    "description": "Классическая вареная колбаса Докторская, изготовленная по строгому стандарту ГОСТ. Идеальна для бутербродов и салатов.",
+    "specifications": {
+      "Вес": "400 г",
+      "Тип": "Вареная колбаса",
+      "Производитель": "Колбасный цех Пайкар"
+    }
+  },
+  {
+    "id": 67,
+    "name": "Чипсы Lays 70-80 г. паприка",
+    "slug": "chipsy-lays-70-80g-paprika",
+    "categoryId": 15,
+    "subcategoryId": 1502,
+    "brand": "Lays",
+    "price": 12,
+    "rating": 4.8,
+    "reviewCount": 42,
+    "isNew": false,
+    "inStock": true,
+    "images": [
+      "https://paykar.shop/upload/iblock/0e6/gbcp1hezu208lcqj640o2fpr0j8hd8fd.jpg"
+    ],
+    "description": "Хрустящие картофельные чипсы Lays со вкусом пикантной паприки.",
+    "specifications": {
+      "Вес": "70 г",
+      "Вкус": "Паприка",
+      "Страна-производитель": "Россия"
+    }
+  },
+  {
+    "id": 68,
+    "name": "Чипсы Pringles 165гр Барбекю",
+    "slug": "chipsy-pringles-165gr-barbekyu",
+    "categoryId": 15,
+    "subcategoryId": 1502,
+    "brand": "Pringles",
+    "price": 36,
+    "rating": 4.9,
+    "reviewCount": 58,
+    "isNew": false,
+    "inStock": true,
+    "images": [
+      "https://paykar.shop/upload/iblock/0f8/5oo9ede6jcnnjoxhmzbntk0htf9apxum.png"
+    ],
+    "description": "Знаменитые чипсы Pringles в тубе со вкусом классического американского барбекю.",
+    "specifications": {
+      "Вес": "165 г",
+      "Вкус": "Барбекю",
+      "Страна-производитель": "Польша"
+    }
+  },
+  {
+    "id": 69,
+    "name": "Фисташки Баракат 70г Иранские",
+    "slug": "fistashki-barakat-70g-iranskie",
+    "categoryId": 15,
+    "subcategoryId": 1501,
+    "brand": "Баракат",
+    "price": 24,
+    "rating": 4.8,
+    "reviewCount": 16,
+    "isNew": true,
+    "inStock": true,
+    "images": [
+      "https://paykar.shop/upload/iblock/0ac/adfpawp7ruunfgt076ni2i6ct75pat83.jpg"
+    ],
+    "description": "Отборные соленые иранские фисташки торговой марки Баракат.",
+    "specifications": {
+      "Вес": "70 г",
+      "Тип": "Жареные соленые",
+      "Страна-производитель": "Иран"
+    }
+  },
+  {
+    "id": 70,
+    "name": "Чипсы Salto Nachos & Cheese 60г соус барбекю",
+    "slug": "chipsy-salto-nachos-cheese-60g",
+    "categoryId": 15,
+    "subcategoryId": 1502,
+    "brand": "Salto",
+    "price": 18,
+    "rating": 4.7,
+    "reviewCount": 19,
+    "isNew": true,
+    "inStock": true,
+    "images": [
+      "https://paykar.shop/upload/iblock/ba3/2bzgt2co7761n5cp5c2tmdlntn1r7wuf.png"
+    ],
+    "description": "Хрустящие кукурузные чипсы Начос со вкусом сыра и соусом барбекю в комплекте.",
+    "specifications": {
+      "Вес": "60 г",
+      "Тип": "Кукурузные чипсы",
+      "Вкус": "Сыр и барбекю"
+    }
+  },
+  {
+    "id": 71,
+    "name": "Фисташки Баракат 70г Таджикские",
+    "slug": "fistashki-barakat-70g-tadzhikskie",
+    "categoryId": 15,
+    "subcategoryId": 1501,
+    "brand": "Баракат",
+    "price": 26,
+    "rating": 4.9,
+    "reviewCount": 22,
+    "isNew": false,
+    "inStock": true,
+    "images": [
+      "https://paykar.shop/upload/iblock/fff/y9vlsqvvnui6pxs9zzezu0fl8cj3gmhf.jpg"
+    ],
+    "description": "Натуральные таджикские фисташки, собранные вручную и бережно обжаренные с солью.",
+    "specifications": {
+      "Вес": "70 г",
+      "Страна-производитель": "Таджикистан"
+    }
+  },
+  {
+    "id": 72,
+    "name": "Чипсы Lays 70-80 г. рифленые лобстер",
+    "slug": "chipsy-lays-70-80g-lobster",
+    "categoryId": 15,
+    "subcategoryId": 1502,
+    "brand": "Lays",
+    "price": 12,
+    "rating": 4.8,
+    "reviewCount": 35,
+    "isNew": false,
+    "inStock": true,
+    "images": [
+      "https://paykar.shop/upload/iblock/1be/xebl5gnix8p8yvo8u7clnkiymsevemag.png"
+    ],
+    "description": "Рифленые картофельные чипсы Lays с изысканным вкусом лобстера.",
+    "specifications": {
+      "Вес": "70 г",
+      "Тип": "Рифленые",
+      "Вкус": "Лобстер"
+    }
+  },
+  {
+    "id": 73,
+    "name": "Попкорн Панчо Легкая карамель ц/п 100г",
+    "slug": "popkorn-pancho-legkaya-karamel-100g",
+    "categoryId": 15,
+    "subcategoryId": 1501,
+    "brand": "Панчо",
+    "price": 9,
+    "rating": 4.6,
+    "reviewCount": 11,
+    "isNew": false,
+    "inStock": true,
+    "images": [
+      "https://paykar.shop/upload/iblock/a17/atdglzoyzw8x3uvfnuj3l5y0yi7w12mc.jpeg"
+    ],
+    "description": "Сладкий хрустящий попкорн, покрытый тонким слоем легкой карамели.",
+    "specifications": {
+      "Вес": "100 г",
+      "Вкус": "Карамель"
+    }
+  },
+  {
+    "id": 74,
+    "name": "Чипсы Lays Из печи 85г нежный сыр с зеленью",
+    "slug": "chipsy-lays-iz-pechi-85g-syr-zelen",
+    "categoryId": 15,
+    "subcategoryId": 1502,
+    "brand": "Lays",
+    "price": 14,
+    "rating": 4.9,
+    "reviewCount": 63,
+    "isNew": true,
+    "inStock": true,
+    "images": [
+      "https://paykar.shop/upload/iblock/ddd/k3nnqq1hd2rlfzjj64ed68dddw8lly1o.jpg"
+    ],
+    "description": "Выпеченные картофельные чипсы Lays Из Печи с пониженным содержанием жира и нежным вкусом сыра с зеленью.",
+    "specifications": {
+      "Вес": "85 г",
+      "Серия": "Из печи",
+      "Вкус": "Сыр с зеленью"
+    }
+  },
+  {
+    "id": 75,
+    "name": "Чипсы Lays 70-80 г. сметана и лук",
+    "slug": "chipsy-lays-70-80g-smetana-luk",
+    "categoryId": 15,
+    "subcategoryId": 1502,
+    "brand": "Lays",
+    "price": 12,
+    "rating": 4.8,
+    "reviewCount": 77,
+    "isNew": false,
+    "inStock": true,
+    "images": [
+      "https://paykar.shop/upload/iblock/e4f/sd5uqs5l2qna9is551ptr8eyvtktypk0.jpg"
+    ],
+    "description": "Классические хрустящие картофельные чипсы Lays со вкусом сметаны и зелени.",
+    "specifications": {
+      "Вес": "75 г",
+      "Вкус": "Сметана и лук"
+    }
+  },
+  {
+    "id": 76,
+    "name": "Попкорн Панчо Шоколад ц/п 50г",
+    "slug": "popkorn-pancho-shokolad-50g",
+    "categoryId": 15,
+    "subcategoryId": 1501,
+    "brand": "Панчо",
+    "price": 7,
+    "rating": 4.7,
+    "reviewCount": 8,
+    "isNew": false,
+    "inStock": true,
+    "images": [
+      "https://paykar.shop/upload/iblock/6aa/z88s1oq9uyfwyaqau2wlvomwrjngoy17.jpg"
+    ],
+    "description": "Хрустящий готовый попкорн с насыщенным вкусом молочного шоколада.",
+    "specifications": {
+      "Вес": "50 г",
+      "Вкус": "Шоколад"
+    }
+  },
+  {
+    "id": 77,
+    "name": "Чипсы Lays 140 г. с солью",
+    "slug": "chipsy-lays-140g-sol",
+    "categoryId": 15,
+    "subcategoryId": 1502,
+    "brand": "Lays",
+    "price": 19,
+    "rating": 4.9,
+    "reviewCount": 112,
+    "isNew": false,
+    "inStock": true,
+    "images": [
+      "https://paykar.shop/upload/iblock/8fc/g6m8v5i037y5mqdblrktlbu3gs3e8n7e.jpg"
+    ],
+    "description": "Традиционные картофельные чипсы Lays с натуральной морской солью в большой упаковке.",
+    "specifications": {
+      "Вес": "140 г",
+      "Вкус": "Соль"
+    }
+  },
+  {
+    "id": 78,
+    "name": "Чипсы Lays 225 г. сметана и лук",
+    "slug": "chipsy-lays-225g-smetana-luk",
+    "categoryId": 15,
+    "subcategoryId": 1502,
+    "brand": "Lays",
+    "price": 26,
+    "rating": 4.8,
+    "reviewCount": 145,
+    "isNew": false,
+    "inStock": true,
+    "images": [
+      "https://paykar.shop/upload/iblock/b11/1mvfnsyhc74e6is9snj970f1b3moegex.jpg"
+    ],
+    "description": "Супер-большая семейная пачка чипсов Lays со вкусом нежной сметаны и зеленого лука.",
+    "specifications": {
+      "Вес": "225 г",
+      "Вкус": "Сметана и лук"
+    }
+  },
+  {
+    "id": 79,
+    "name": "Соломки Lays Stix 50г соус 1000 островов",
+    "slug": "solomki-lays-stix-50g-1000-ostrovov",
+    "categoryId": 15,
+    "subcategoryId": 1502,
+    "brand": "Lays",
+    "price": 10,
+    "rating": 4.7,
+    "reviewCount": 33,
+    "isNew": true,
+    "inStock": true,
+    "images": [
+      "https://paykar.shop/upload/iblock/2f0/hea4s57djotgatvauj7qkh6xgi1v8ifc.png"
+    ],
+    "description": "Хрустящая тонкая картофельная соломка Lays Stix со вкусом соуса 1000 островов.",
+    "specifications": {
+      "Вес": "50 г",
+      "Форма": "Соломка",
+      "Вкус": "1000 островов"
+    }
+  },
+  {
+    "id": 80,
+    "name": "Соломки Lays Stix 50г соус BBQ",
+    "slug": "solomki-lays-stix-50g-bbq",
+    "categoryId": 15,
+    "subcategoryId": 1502,
+    "brand": "Lays",
+    "price": 10,
+    "rating": 4.8,
+    "reviewCount": 26,
+    "isNew": false,
+    "inStock": true,
+    "images": [
+      "https://paykar.shop/upload/iblock/c26/h8vi7q5zc2lyx3gpgnz71q2f6vgvpr3j.jpg"
+    ],
+    "description": "Картофельная соломка Lays Stix со вкусом пикантного барбекю соуса.",
+    "specifications": {
+      "Вес": "50 г",
+      "Форма": "Соломка",
+      "Вкус": "Барбекю"
+    }
+  },
+  {
+    "id": 81,
+    "name": "Соломки Lays Stix 50г сырный соус",
+    "slug": "solomki-lays-stix-50g-syrnyj-sous",
+    "categoryId": 15,
+    "subcategoryId": 1502,
+    "brand": "Lays",
+    "price": 10,
+    "rating": 4.9,
+    "reviewCount": 38,
+    "isNew": false,
+    "inStock": true,
+    "images": [
+      "https://paykar.shop/upload/iblock/1c0/13j2sks55a62lv05y1etqd6bt3bp2dfc.png"
+    ],
+    "description": "Тонкая хрустящая соломка Lays Stix с насыщенным ароматом сырного соуса.",
+    "specifications": {
+      "Вес": "50 г",
+      "Форма": "Соломка",
+      "Вкус": "Сырный соус"
+    }
   }
 ]

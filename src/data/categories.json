@@ -132,5 +132,49 @@
       { "id": 1202, "slug": "smesi-i-kashi", "name": "Смеси и каши" },
       { "id": 1203, "slug": "igrushki", "name": "Игрушки" }
     ]
+  },
+  {
+    "id": 13,
+    "slug": "myasnaya-gastronomiya",
+    "name": "Мясная гастрономия",
+    "icon": "🥓",
+    "subcategories": [
+      { "id": 1301, "slug": "sosiski-sardelki", "name": "Сосиски и сардельки" },
+      { "id": 1302, "slug": "kolbasnye-izdeliya", "name": "Колбасные изделия" },
+      { "id": 1303, "slug": "myasnye-delikatesy", "name": "Мясные деликатесы" }
+    ]
+  },
+  {
+    "id": 14,
+    "slug": "polufabrikaty-moreprodukty",
+    "name": "Полуфабрикаты, морепродукты",
+    "icon": "🐟",
+    "subcategories": [
+      { "id": 1401, "slug": "moreprodukty", "name": "Морепродукты" },
+      { "id": 1402, "slug": "polufabrikaty-testo", "name": "Полуфабрикаты из теста" },
+      { "id": 1403, "slug": "ryba", "name": "Рыба" }
+    ]
+  },
+  {
+    "id": 15,
+    "slug": "sneki",
+    "name": "Снеки",
+    "icon": "🍿",
+    "subcategories": [
+      { "id": 1501, "slug": "semiechki-orekhi", "name": "Семечки и орешки" },
+      { "id": 1502, "slug": "chipsy", "name": "Чипсы" },
+      { "id": 1503, "slug": "sukhariki", "name": "Сухарики" }
+    ]
+  },
+  {
+    "id": 16,
+    "slug": "dlya-zhivotnykh",
+    "name": "Для животных",
+    "icon": "🐾",
+    "subcategories": [
+      { "id": 1601, "slug": "korm-dlya-koshek", "name": "Корм для кошек" },
+      { "id": 1602, "slug": "korm-dlya-sobak", "name": "Корм для собак" },
+      { "id": 1603, "slug": "napolniteli", "name": "Наполнители" }
+    ]
   }
 ]

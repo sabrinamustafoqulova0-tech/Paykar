@@ -1,5 +1,6 @@
 import React, { useMemo } from 'react'
 import { useNavigate, useSearchParams } from 'react-router-dom'
+import { motion, AnimatePresence } from 'framer-motion'
 import FolderIcon from '@mui/icons-material/Folder'
 import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown'
 import KeyboardArrowRightIcon from '@mui/icons-material/KeyboardArrowRight'
@@ -9,12 +10,30 @@ import categoriesData from '../data/categories.json'
 import productsData from '../data/products.json'
 import { CategoryIcon } from './Icons'
 import { ProductCard } from './ProductCard'
-import { useStore } from '../context/StoreContext'
+import { useAppDispatch } from '../store/hooks'
+import { addToCart } from '../store/cartSlice'
+import { setSelectedProduct } from '../store/uiSlice'
+
+const containerVariants = {
+  hidden: { opacity: 0 },
+  show: {
+    opacity: 1,
+    transition: { staggerChildren: 0.05 }
+  }
+} as const
+
+const itemVariants = {
+  hidden: { opacity: 0, y: 15 },
+  show: { opacity: 1, y: 0, transition: { type: 'spring' as const, stiffness: 100, damping: 15 } }
+} as const
+
 
 export const CatalogView: React.FC = () => {
   const navigate = useNavigate()
   const [searchParams, setSearchParams] = useSearchParams()
-  const { addToCart, setSelectedProduct } = useStore()
+  const dispatch = useAppDispatch()
+  const addToCartFn = (product: any, qty?: number) => dispatch(addToCart({ product, quantity: qty }))
+  const setSelectedProductFn = (product: any) => dispatch(setSelectedProduct(product))
 
   // ── Read filters from URL ─────────────────────────────────────────────────
   const catParam  = searchParams.get('cat')
@@ -83,14 +102,16 @@ export const CatalogView: React.FC = () => {
   }, [selectedCategory, selectedSubcategory, qParam, minPrice, maxPrice, sortBy])
 
   return (
-    <div className="catalog-layout">
-
+    <motion.div 
+      className="catalog-layout"
+      variants={containerVariants}
+      initial="hidden"
+      animate="show"
+    >
       {/* ── Sidebar ─────────────────────────────────────────────────────── */}
-      <div className="sidebar-card">
+      <motion.div variants={itemVariants} className="sidebar-card">
         <h3 className="sidebar-title">Каталог товаров</h3>
         <ul className="sidebar-menu">
-
-          {/* All categories */}
           <li>
             <button
               className={`sidebar-cat-btn ${!selectedCategory ? 'active' : ''}`}
@@ -103,7 +124,6 @@ export const CatalogView: React.FC = () => {
             </button>
           </li>
 
-          {/* Category list */}
           {(categoriesData as Category[]).map(cat => (
             <li key={cat.id} className="sidebar-item">
               <button
@@ -117,26 +137,33 @@ export const CatalogView: React.FC = () => {
                 {selectedCategory?.id === cat.id ? <KeyboardArrowDownIcon /> : <KeyboardArrowRightIcon />}
               </button>
 
-              {/* Subcategories */}
-              {selectedCategory?.id === cat.id && (
-                <ul className="sidebar-sub-menu">
-                  {cat.subcategories.map(sub => (
-                    <li key={sub.id} className="sidebar-sub-item">
-                      <button
-                        className={`sidebar-sub-link ${selectedSubcategory?.id === sub.id ? 'active' : ''}`}
-                        onClick={() => selectSubcategory(sub)}
-                      >
-                        — {sub.name}
-                      </button>
-                    </li>
-                  ))}
-                </ul>
-              )}
+              <AnimatePresence>
+                {selectedCategory?.id === cat.id && (
+                  <motion.ul 
+                    initial={{ height: 0, opacity: 0 }}
+                    animate={{ height: 'auto', opacity: 1 }}
+                    exit={{ height: 0, opacity: 0 }}
+                    transition={{ duration: 0.3 }}
+                    className="sidebar-sub-menu"
+                    style={{ overflow: 'hidden' }}
+                  >
+                    {cat.subcategories.map(sub => (
+                      <li key={sub.id} className="sidebar-sub-item">
+                        <button
+                          className={`sidebar-sub-link ${selectedSubcategory?.id === sub.id ? 'active' : ''}`}
+                          onClick={() => selectSubcategory(sub)}
+                        >
+                          — {sub.name}
+                        </button>
+                      </li>
+                    ))}
+                  </motion.ul>
+                )}
+              </AnimatePresence>
             </li>
           ))}
         </ul>
 
-        {/* Price filter */}
         <div className="filter-section">
           <h4 className="filter-title">Фильтр по цене</h4>
           <div className="price-filter-inputs">
@@ -147,7 +174,7 @@ export const CatalogView: React.FC = () => {
               value={minPrice}
               onChange={e => setParam('minPrice', e.target.value)}
             />
-            <span>—</span>
+            <span style={{ color: 'var(--text-muted)' }}>—</span>
             <input
               type="number"
               placeholder="До"
@@ -157,12 +184,12 @@ export const CatalogView: React.FC = () => {
             />
           </div>
         </div>
-      </div>
+      </motion.div>
 
       {/* ── Catalog Content ──────────────────────────────────────────────── */}
-      <div>
+      <div style={{ minWidth: 0 }}>
         {/* Breadcrumbs */}
-        <div className="breadcrumbs">
+        <motion.div variants={itemVariants} className="breadcrumbs">
           <button onClick={() => navigate('/')}>Главная</button>
           <span className="breadcrumb-separator">/</span>
           <button onClick={clearCategory}>Каталог</button>
@@ -175,13 +202,13 @@ export const CatalogView: React.FC = () => {
           {selectedSubcategory && (
             <>
               <span className="breadcrumb-separator">/</span>
-              <span>{selectedSubcategory.name}</span>
+              <span style={{ color: 'var(--text-main)', fontWeight: 700 }}>{selectedSubcategory.name}</span>
             </>
           )}
-        </div>
+        </motion.div>
 
         {/* Header + sorting */}
-        <div className="catalog-content-header">
+        <motion.div variants={itemVariants} className="catalog-content-header">
           <h2 className="catalog-title">
             {selectedSubcategory?.name ?? selectedCategory?.name ?? 'Все категории'}
           </h2>
@@ -198,27 +225,42 @@ export const CatalogView: React.FC = () => {
               <option value="rating">По рейтингу</option>
             </select>
           </div>
-        </div>
+        </motion.div>
 
         {/* Product grid */}
-        {filteredProducts.length === 0 ? (
-          <div style={{ textAlign: 'center', padding: '40px', color: 'var(--text-muted)' }}>
-            <h3>Товары не найдены</h3>
-            <p>Попробуйте сбросить фильтры или изменить поисковый запрос.</p>
-          </div>
-        ) : (
-          <div className="product-grid">
-            {filteredProducts.map(product => (
-              <ProductCard
-                key={product.id}
-                product={product}
-                onSelect={setSelectedProduct}
-                onAddToCart={addToCart}
-              />
-            ))}
-          </div>
-        )}
+        <AnimatePresence mode="wait">
+          {filteredProducts.length === 0 ? (
+            <motion.div 
+              key="empty"
+              initial={{ opacity: 0, y: 10 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -10 }}
+              style={{ textAlign: 'center', padding: '60px 40px', color: 'var(--text-muted)' }}
+            >
+              <h3 style={{ fontSize: '20px', fontWeight: 800, marginBottom: '8px' }}>Товары не найдены</h3>
+              <p>Попробуйте сбросить фильтры или изменить поисковый запрос.</p>
+            </motion.div>
+          ) : (
+            <motion.div 
+              key="grid"
+              variants={containerVariants}
+              initial="hidden"
+              animate="show"
+              className="product-grid"
+            >
+              {filteredProducts.map(product => (
+                <motion.div key={product.id} variants={itemVariants}>
+                  <ProductCard
+                    product={product}
+                    onSelect={setSelectedProductFn}
+                    onAddToCart={addToCartFn}
+                  />
+                </motion.div>
+              ))}
+            </motion.div>
+          )}
+        </AnimatePresence>
       </div>
-    </div>
+    </motion.div>
   )
 }

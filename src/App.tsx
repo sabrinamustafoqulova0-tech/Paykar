@@ -1,8 +1,19 @@
 import React, { useState } from 'react'
-import { Routes, Route, Navigate } from 'react-router-dom'
+import MarkunreadIcon from '@mui/icons-material/Markunread';
+import { Routes, Route, Navigate, useNavigate } from 'react-router-dom'
 
-// Context
-import { StoreProvider, useStore } from './context/StoreContext'
+// Redux
+import { useAppDispatch, useAppSelector } from './store/hooks'
+import {
+  login, logout, hideLoginToast,
+  setLoginModalOpen, setLoginForm,
+} from './store/authSlice'
+import { clearCart } from './store/cartSlice'
+import { selectCartItemCount } from './store/cartSlice'
+import { selectCompareList } from './store/compareSlice'
+import { selectSelectedProduct, setSelectedProduct } from './store/uiSlice'
+import { addToCart } from './store/cartSlice'
+import { toggleCompare } from './store/compareSlice'
 
 // Global layout components
 import { Header } from './components/Header'
@@ -10,10 +21,13 @@ import { Footer } from './components/Footer'
 import { ChatWidget } from './components/ChatWidget'
 import { LoginModal } from './components/LoginModal'
 import { ProductDetailModal } from './components/ProductDetailModal'
+import { ThemeCustomizer } from './components/ThemeCustomizer'
 
 // Page-level views
 import { HomeView } from './components/HomeView'
 import { CatalogView } from './components/CatalogView'
+import { CategoriesView } from './components/CategoriesView'
+import { PromotionsView } from './components/PromotionsView'
 import { AboutView } from './components/AboutView'
 import { DeliveryView } from './components/DeliveryView'
 import { ContactsView } from './components/ContactsView'
@@ -26,36 +40,73 @@ import CloseIcon from '@mui/icons-material/Close'
 import PhoneIcon from '@mui/icons-material/Phone'
 import SendIcon from '@mui/icons-material/Send'
 
-// ─── Protected Route ─────────────────────────────────────────────────────────
+import reviewsData from './data/reviews.json'
+import type { Review } from './types'
+
+// ─── Protected Route ──────────────────────────────────────────────────────────
 
 const ProtectedCartRoute: React.FC = () => {
-  const { isLoggedIn } = useStore()
+  const isLoggedIn = useAppSelector(s => s.auth.isLoggedIn)
   return isLoggedIn ? <CartView /> : <Navigate to="/" replace />
 }
 
-// ─── App Content (inside StoreProvider) ──────────────────────────────────────
+// ─── App Content ──────────────────────────────────────────────────────────────
 
 const AppContent: React.FC = () => {
-  const {
-    isLoggedIn, loginModalOpen, setLoginModalOpen, showLoginToast,
-    loginForm, setLoginForm, handleFakeLoginSubmit, handleLogout, handleCartClick,
-    cart, compareList, selectedProduct, setSelectedProduct,
-    addToCart, toggleCompare, activeProductReviews,
-  } = useStore()
+  const dispatch = useAppDispatch()
+  const navigate = useNavigate()
 
-  // ── Chat state (global widget, lives here) ──────────────────────────────
+  // ── Auth state from Redux ────────────────────────────────────────────────
+  const isLoggedIn      = useAppSelector(s => s.auth.isLoggedIn)
+  const loginModalOpen  = useAppSelector(s => s.auth.loginModalOpen)
+  const showLoginToast  = useAppSelector(s => s.auth.showLoginToast)
+  const loginForm       = useAppSelector(s => s.auth.loginForm)
+
+  // ── Cart / Compare / UI from Redux ───────────────────────────────────────
+  const cartCount       = useAppSelector(selectCartItemCount)
+  const compareList     = useAppSelector(selectCompareList)
+  const selectedProduct = useAppSelector(selectSelectedProduct)
+
+  // ── Active product reviews (derived) ────────────────────────────────────
+  const activeProductReviews: Review[] = selectedProduct
+    ? (reviewsData as Review[]).filter(r => r.productId === selectedProduct.id)
+    : []
+
+  // ── Auth handlers ────────────────────────────────────────────────────────
+  const handleCartClick = () => {
+    if (!isLoggedIn) {
+      dispatch(setLoginModalOpen(true))
+    } else {
+      navigate('/cart')
+    }
+  }
+
+  const handleFakeLoginSubmit = (e: React.FormEvent) => {
+    e.preventDefault()
+    dispatch(login())
+    navigate('/cart')
+    setTimeout(() => dispatch(hideLoginToast()), 3000)
+  }
+
+  const handleLogout = () => {
+    dispatch(logout())
+    dispatch(clearCart())
+    navigate('/')
+  }
+
+  // ── Chat state (local, UI-only) ──────────────────────────────────────────
   const [chatOpen, setChatOpen] = useState(false)
   const [chatInput, setChatInput] = useState('')
   const [chatMessages, setChatMessages] = useState<Array<{ sender: 'user' | 'operator'; text: string }>>([
     { sender: 'operator', text: 'Здравствуйте! Готов помочь вам. Напишите мне, если у вас появятся вопросы.' }
   ])
 
-  // ── Call-request state ──────────────────────────────────────────────────
+  // ── Call-request state (local, UI-only) ──────────────────────────────────
   const [callRequestOpen, setCallRequestOpen] = useState(false)
   const [callRequestPhone, setCallRequestPhone] = useState('')
   const [callRequestSuccess, setCallRequestSuccess] = useState(false)
 
-  // ── Chat handler ────────────────────────────────────────────────────────
+  // ── Chat handler ──────────────────────────────────────────────────────────
   const sendChatMessage = (e: React.FormEvent) => {
     e.preventDefault()
     if (!chatInput.trim()) return
@@ -78,7 +129,7 @@ const AppContent: React.FC = () => {
     }, 1000)
   }
 
-  // ── Call-request handler ────────────────────────────────────────────────
+  // ── Call-request handler ──────────────────────────────────────────────────
   const handleCallRequest = (e: React.FormEvent) => {
     e.preventDefault()
     if (!callRequestPhone.trim()) return
@@ -93,7 +144,7 @@ const AppContent: React.FC = () => {
   return (
     <div id="root">
 
-      {/* ── Toast banner ─────────────────────────────────────────────────── */}
+      {/* ── Toast banner ──────────────────────────────────────────────────── */}
       {showLoginToast && (
         <div className="toast-banner">
           <CheckIcon fontSize="small" />
@@ -101,14 +152,14 @@ const AppContent: React.FC = () => {
         </div>
       )}
 
-      {/* ── Header ───────────────────────────────────────────────────────── */}
+      {/* ── Header ────────────────────────────────────────────────────────── */}
       <Header
         isLoggedIn={isLoggedIn}
         handleLogout={handleLogout}
-        setLoginModalOpen={setLoginModalOpen}
+        setLoginModalOpen={(open) => dispatch(setLoginModalOpen(open))}
         setCallRequestOpen={setCallRequestOpen}
         compareList={compareList}
-        cart={cart}
+        cartCount={cartCount}
         handleCartClick={handleCartClick}
       />
 
@@ -118,6 +169,8 @@ const AppContent: React.FC = () => {
           <Routes>
             <Route path="/" element={<HomeView />} />
             <Route path="/catalog" element={<CatalogView />} />
+            <Route path="/categories" element={<CategoriesView />} />
+            <Route path="/promotions" element={<PromotionsView />} />
             <Route path="/about" element={<AboutView />} />
             <Route path="/delivery" element={<DeliveryView />} />
             <Route path="/contacts" element={<ContactsView />} />
@@ -129,20 +182,19 @@ const AppContent: React.FC = () => {
         </div>
       </main>
 
-      {/* ── Footer ───────────────────────────────────────────────────────── */}
+      {/* ── Footer ────────────────────────────────────────────────────────── */}
       <Footer />
 
-      {/* ── Floating side panel ──────────────────────────────────────────── */}
+      {/* ── Floating side panel ───────────────────────────────────────────── */}
       <div className="sticky-widget">
         <a href="tel:4400" className="sticky-tab" title="Позвонить"><PhoneIcon fontSize="small" /></a>
         <a href="https://t.me/tmpaykar" target="_blank" rel="noopener noreferrer" className="sticky-tab" title="Telegram"><SendIcon fontSize="small" /></a>
         <button className="sticky-tab" title="Написать" onClick={() => setChatOpen(!chatOpen)}>
-          {/* chat bubble icon inline since ChatWidget has the icon too */}
-          💬
+          <MarkunreadIcon />
         </button>
       </div>
 
-      {/* ── Chat widget ──────────────────────────────────────────────────── */}
+      {/* ── Chat widget ───────────────────────────────────────────────────── */}
       <ChatWidget
         chatOpen={chatOpen}
         setChatOpen={setChatOpen}
@@ -152,22 +204,22 @@ const AppContent: React.FC = () => {
         sendChatMessage={sendChatMessage}
       />
 
-      {/* ── Login modal ──────────────────────────────────────────────────── */}
+      {/* ── Login modal ───────────────────────────────────────────────────── */}
       <LoginModal
         open={loginModalOpen}
-        onClose={() => setLoginModalOpen(false)}
+        onClose={() => dispatch(setLoginModalOpen(false))}
         loginForm={loginForm}
-        setLoginForm={setLoginForm}
+        setLoginForm={(form) => dispatch(setLoginForm(form))}
         onSubmit={handleFakeLoginSubmit}
       />
 
-      {/* ── Product detail modal ─────────────────────────────────────────── */}
+      {/* ── Product detail modal ──────────────────────────────────────────── */}
       <ProductDetailModal
         product={selectedProduct}
-        onClose={() => setSelectedProduct(null)}
-        onAddToCart={addToCart}
+        onClose={() => dispatch(setSelectedProduct(null))}
+        onAddToCart={(product) => { dispatch(addToCart({ product })) }}
         compareList={compareList}
-        onToggleCompare={toggleCompare}
+        onToggleCompare={(product) => dispatch(toggleCompare(product))}
         reviews={activeProductReviews}
       />
 
@@ -209,17 +261,15 @@ const AppContent: React.FC = () => {
           </div>
         </div>
       )}
+      {/* ── Theme customizer panel ────────────────────────────────────────── */}
+      <ThemeCustomizer />
 
     </div>
   )
 }
 
-// ─── Root App (provides Store + renders AppContent) ───────────────────────────
+// ─── Root App ──────────────────────────────────────────────────────────────────
 
-const App: React.FC = () => (
-  <StoreProvider>
-    <AppContent />
-  </StoreProvider>
-)
+const App: React.FC = () => <AppContent />
 
 export default App
