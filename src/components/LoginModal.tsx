@@ -11,27 +11,24 @@ export interface LoginModalProps {
 }
 
 export const LoginModal: React.FC<LoginModalProps> = ({
-  open,
+  open: _open,
   onClose,
   loginForm,
   setLoginForm,
   onSubmit
 }) => {
-  if (!open) return null
-
   return (
     <motion.div 
       initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
-      exit={{ opacity: 0 }}
+      animate={{ opacity: 1, transition: { duration: 0.3, ease: 'easeOut' } }}
+      exit={{ opacity: 0, transition: { duration: 0.2, ease: 'easeIn' } }}
       className="modal-overlay" 
       onClick={onClose}
     >
       <motion.div 
-        initial={{ opacity: 0, scale: 0.9, y: 20 }}
-        animate={{ opacity: 1, scale: 1, y: 0 }}
-        exit={{ opacity: 0, scale: 0.9, y: 20 }}
-        transition={{ type: 'spring', stiffness: 350, damping: 25 }}
+        initial={{ opacity: 0, scale: 0.96, y: 12 }}
+        animate={{ opacity: 1, scale: 1, y: 0, transition: { duration: 0.45, ease: [0.16, 1, 0.3, 1] } }}
+        exit={{ opacity: 0, scale: 0.96, y: 12, transition: { duration: 0.25, ease: [0.7, 0, 0.84, 0] } }}
         className="login-card" 
         onClick={(e) => e.stopPropagation()}
       >

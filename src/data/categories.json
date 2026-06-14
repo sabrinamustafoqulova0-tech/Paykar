@@ -176,5 +176,16 @@
       { "id": 1602, "slug": "korm-dlya-sobak", "name": "Корм для собак" },
       { "id": 1603, "slug": "napolniteli", "name": "Наполнители" }
     ]
+  },
+  {
+    "id": 17,
+    "slug": "zdorovoe-pitanie",
+    "name": "Здоровое питание",
+    "icon": "🥗",
+    "subcategories": [
+      { "id": 1701, "slug": "diabeticheskie-tovary", "name": "Диабетические товары" },
+      { "id": 1702, "slug": "bezglyutenovye-produkty", "name": "Безглютеновые продукты" },
+      { "id": 1703, "slug": "superfudy-muesli", "name": "Суперфуды, мюсли, хлопья" }
+    ]
   }
 ]

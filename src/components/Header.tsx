@@ -35,12 +35,38 @@ export const Header: React.FC<HeaderProps> = ({
   const navigate = useNavigate()
   const location = useLocation()
 
-
+  const [scrolled, setScrolled] = useState(false)
   const [activeDropdown, setActiveDropdown] = useState<string | null>(null)
+  
+  const [searchQuery, setSearchQuery] = useState('')
+  const [isSearchFocused, setIsSearchFocused] = useState(false)
+
+  React.useEffect(() => {
+    const handleScroll = () => {
+      setScrolled(window.scrollY > 30)
+    }
+    window.addEventListener('scroll', handleScroll)
+    return () => window.removeEventListener('scroll', handleScroll)
+  }, [])
+
+  const handleSearchSubmit = (e: React.FormEvent) => {
+    e.preventDefault()
+    if (searchQuery.trim()) {
+      navigate(`/catalog?q=${encodeURIComponent(searchQuery.trim())}`)
+    }
+  }
 
   const isActive = (path: string) => location.pathname === path
 
-  const navLinks = [
+  interface NavLink {
+    label: string
+    path: string
+    onClick: () => void | Promise<void>
+    match?: () => boolean
+    dropdownItems?: { label: string; onClick: () => void }[]
+  }
+
+  const navLinks: NavLink[] = [
     { label: 'Главная', path: '/', onClick: () => navigate('/') },
     {
       label: 'Как купить',
@@ -61,23 +87,18 @@ export const Header: React.FC<HeaderProps> = ({
   ]
 
   return (
-    <header className="site-header-unified">
+    <header className={`site-header-unified ${scrolled ? 'scrolled' : ''}`}>
       <div className="container header-unified-container">
         
         {/* Left Section: Logo & City */}
         <div className="header-left">
-          <motion.div 
-            whileHover={{ scale: 1.02 }}
-            className="logo-wrapper"
-          >
+          <div className="logo-wrapper">
             <PaykarLogo onClick={() => navigate('/')} />
-          </motion.div>
-          
-          
+          </div>
         </div>
 
         {/* Center Section: Catalog & Search */}
-        <div className="header-center">
+        <div className="header-center" style={{ display: 'flex', gap: '12px', alignItems: 'center' }}>
           <motion.button 
             whileHover={{ scale: 1.03 }}
             whileTap={{ scale: 0.97 }}
@@ -88,7 +109,24 @@ export const Header: React.FC<HeaderProps> = ({
             <span>Каталог</span>
           </motion.button>
 
-         
+          <form onSubmit={handleSearchSubmit} className="search-form-unified" style={{ position: 'relative' }}>
+            <motion.input
+              type="text"
+              placeholder="Поиск товаров..."
+              value={searchQuery}
+              onChange={(e) => setSearchQuery(e.target.value)}
+              onFocus={() => setIsSearchFocused(true)}
+              onBlur={() => setIsSearchFocused(false)}
+              animate={{
+                width: isSearchFocused ? 260 : 160
+              }}
+              transition={{
+                duration: 0.3,
+                ease: [0.16, 1, 0.3, 1]
+              }}
+              className="search-input-unified"
+            />
+          </form>
         </div>
 
         {/* Right Section: Navigation Links & Action Controls */}
@@ -145,7 +183,7 @@ export const Header: React.FC<HeaderProps> = ({
                           marginTop: '4px'
                         }}
                       >
-                        {link.dropdownItems.map(item => (
+                        {link.dropdownItems?.map((item: any) => (
                           <button 
                             key={item.label} 
                             className="dropdown-item" 
@@ -226,9 +264,9 @@ export const Header: React.FC<HeaderProps> = ({
             </motion.button>
 
             {/* Phone shortcode */}
-            <a href="tel:4400" className="phone-shortcode" title="Позвонить: 4400">
+            <a href="tel:+992446302020" className="phone-shortcode" title="Позвонить: +992 44 630 2020">
               <PhoneIcon fontSize="small" />
-              <span>4400</span>
+              <span>+992 44 630 2020</span>
             </a>
 
             {/* Auth button */}

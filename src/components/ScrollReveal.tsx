@@ -7,35 +7,25 @@ interface ScrollRevealProps {
 }
 
 export const ScrollReveal: React.FC<ScrollRevealProps> = ({ children, delay = 0 }) => {
+  // Respect prefers-reduced-motion
+  const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches
+  if (prefersReduced) {
+    return <>{children}</>
+  }
+
+  // Handle mobile check for halved vertical offset
+  const isMobile = typeof window !== 'undefined' ? window.innerWidth < 768 : false
+  const yOffset = isMobile ? 12 : 24
+
   return (
     <motion.div
-      initial={{ 
-        opacity: 0, 
-        y: 90, 
-        scale: 0.92,
-        rotateX: 12,
-        z: -50
-      }}
-      whileInView={{ 
-        opacity: 1, 
-        y: 0, 
-        scale: 1,
-        rotateX: 0,
-        z: 0
-      }}
-      viewport={{ once: true, margin: '-100px' }}
+      initial={{ opacity: 0, y: yOffset }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, amount: 0.2 }}
       transition={{
-        type: 'spring',
-        stiffness: 60,
-        damping: 14,
-        mass: 0.9,
+        duration: 0.5,
+        ease: [0.16, 1, 0.3, 1],
         delay: delay
-      }}
-      style={{ 
-        transformOrigin: 'center top',
-        perspective: '1200px',
-        backfaceVisibility: 'hidden',
-        willChange: 'transform, opacity'
       }}
     >
       {children}

@@ -1,4 +1,5 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
+import { AnimatePresence } from 'framer-motion'
 import MarkunreadIcon from '@mui/icons-material/Markunread';
 import { Routes, Route, Navigate, useNavigate } from 'react-router-dom'
 
@@ -22,6 +23,12 @@ import { ChatWidget } from './components/ChatWidget'
 import { LoginModal } from './components/LoginModal'
 import { ProductDetailModal } from './components/ProductDetailModal'
 import { ThemeCustomizer } from './components/ThemeCustomizer'
+
+// Supernatural Elements
+import { Preloader } from './components/Preloader'
+import { SupernaturalBackground } from './components/SupernaturalBackground'
+import { AddToCartPortal } from './components/AddToCartPortal'
+import { FloatingCartBubble } from './components/FloatingCartBubble'
 
 // Page-level views
 import { HomeView } from './components/HomeView'
@@ -55,6 +62,8 @@ const ProtectedCartRoute: React.FC = () => {
 const AppContent: React.FC = () => {
   const dispatch = useAppDispatch()
   const navigate = useNavigate()
+  
+  const [loading, setLoading] = useState(true)
 
   // ── Auth state from Redux ────────────────────────────────────────────────
   const isLoggedIn      = useAppSelector(s => s.auth.isLoggedIn)
@@ -141,8 +150,30 @@ const AppContent: React.FC = () => {
     }, 3000)
   }
 
+  useEffect(() => {
+    const handleOpenCallRequest = () => {
+      setCallRequestOpen(true)
+    }
+    window.addEventListener('open-call-request', handleOpenCallRequest)
+    return () => {
+      window.removeEventListener('open-call-request', handleOpenCallRequest)
+    }
+  }, [])
+
   return (
     <div id="root">
+
+      {/* ── Supernatural Morphing Preloader ── */}
+      {loading && <Preloader onComplete={() => setLoading(false)} />}
+
+      {/* ── Live Nebula & Floating Dust Background ── */}
+      <SupernaturalBackground />
+
+      {/* ── Add-to-cart Gravity Particles Canvas ── */}
+      <AddToCartPortal />
+
+      {/* ── Sticky Pulsing Teleport Cart Bubble ── */}
+      <FloatingCartBubble onClick={handleCartClick} />
 
       {/* ── Toast banner ──────────────────────────────────────────────────── */}
       {showLoginToast && (
@@ -187,7 +218,7 @@ const AppContent: React.FC = () => {
 
       {/* ── Floating side panel ───────────────────────────────────────────── */}
       <div className="sticky-widget">
-        <a href="tel:4400" className="sticky-tab" title="Позвонить"><PhoneIcon fontSize="small" /></a>
+        <a href="tel:+992446302020" className="sticky-tab" title="Позвонить"><PhoneIcon fontSize="small" /></a>
         <a href="https://t.me/tmpaykar" target="_blank" rel="noopener noreferrer" className="sticky-tab" title="Telegram"><SendIcon fontSize="small" /></a>
         <button className="sticky-tab" title="Написать" onClick={() => setChatOpen(!chatOpen)}>
           <MarkunreadIcon />
@@ -205,23 +236,31 @@ const AppContent: React.FC = () => {
       />
 
       {/* ── Login modal ───────────────────────────────────────────────────── */}
-      <LoginModal
-        open={loginModalOpen}
-        onClose={() => dispatch(setLoginModalOpen(false))}
-        loginForm={loginForm}
-        setLoginForm={(form) => dispatch(setLoginForm(form))}
-        onSubmit={handleFakeLoginSubmit}
-      />
+      <AnimatePresence>
+        {loginModalOpen && (
+          <LoginModal
+            open={loginModalOpen}
+            onClose={() => dispatch(setLoginModalOpen(false))}
+            loginForm={loginForm}
+            setLoginForm={(form) => dispatch(setLoginForm(form))}
+            onSubmit={handleFakeLoginSubmit}
+          />
+        )}
+      </AnimatePresence>
 
       {/* ── Product detail modal ──────────────────────────────────────────── */}
-      <ProductDetailModal
-        product={selectedProduct}
-        onClose={() => dispatch(setSelectedProduct(null))}
-        onAddToCart={(product) => { dispatch(addToCart({ product })) }}
-        compareList={compareList}
-        onToggleCompare={(product) => dispatch(toggleCompare(product))}
-        reviews={activeProductReviews}
-      />
+      <AnimatePresence>
+        {selectedProduct && (
+          <ProductDetailModal
+            product={selectedProduct}
+            onClose={() => dispatch(setSelectedProduct(null))}
+            onAddToCart={(product) => { dispatch(addToCart({ product })) }}
+            compareList={compareList}
+            onToggleCompare={(product) => dispatch(toggleCompare(product))}
+            reviews={activeProductReviews}
+          />
+        )}
+      </AnimatePresence>
 
       {/* ── Call request modal ────────────────────────────────────────────── */}
       {callRequestOpen && (

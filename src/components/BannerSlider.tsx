@@ -34,15 +34,14 @@ const slideVariants = {
 }
 
 const contentVariants = {
-  hidden: { opacity: 0, y: 30 },
+  hidden: { opacity: 0, y: 12 },
   visible: (custom: number) => ({
     opacity: 1,
     y: 0,
     transition: {
-      delay: custom * 0.15,
+      delay: custom * 0.08,
       duration: 0.5,
-      type: 'spring',
-      stiffness: 100
+      ease: [0.16, 1, 0.3, 1] as [number, number, number, number]
     }
   })
 }
@@ -51,7 +50,6 @@ export const BannerSlider: React.FC = () => {
   const navigate = useNavigate()
   const activeBanners = bannersData.filter(b => b.isActive) as Banner[]
   
-  const [currentIndex, setCurrentIndex] = useState(0)
   const [[page, direction], setPage] = useState([0, 0])
   const [isHovered, setIsHovered] = useState(false)
 

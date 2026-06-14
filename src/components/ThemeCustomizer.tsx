@@ -175,7 +175,7 @@ export const ThemeCustomizer: React.FC = () => {
         whileTap={{ scale: 0.9 }}
         title="Настройка стиля интерфейса"
       >
-        <SettingsIcon fontSize="medium" className="spinning-icon" />
+        <SettingsIcon fontSize="medium" />
       </motion.button>
 
       {/* Side panel overlay */}

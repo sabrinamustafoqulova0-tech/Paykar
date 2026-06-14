@@ -8,23 +8,127 @@ import categoriesData from '../data/categories.json'
 import productsData from '../data/products.json'
 import { CategoryIcon } from './Icons'
 
-const containerVariants = {
-  hidden: { opacity: 0 },
-  show: {
-    opacity: 1,
-    transition: { staggerChildren: 0.05 }
-  }
-} as const
+// Custom descriptive text for the back of categories
+const CATEGORY_DESCRIPTIONS: Record<string, string> = {
+  'molochnye-produkty': 'Свежие фермерские сыры, йогурты, натуральный творог и отборное молоко.',
+  'myaso-ptitsa': 'Натуральная говядина, куриное филе и полуфабрикаты халяль высокой свежести.',
+  'hleb-i-vypechka': 'Ароматный хлеб, традиционный таджикский нон и свежая выпечка к вашему столу.',
+  'frukty-i-ovoshchi': 'Сочные спелые фрукты и хрустящие овощи из другого измерения, полные витаминов.',
+  'bakaleya': 'Премиальные крупы, макаронные изделия высшего качества, масла и мука для выпечки.',
+  'voda-i-napitki': 'Освежающие натуральные соки, газированная и экологически чистая питьевая вода.',
+  'sladosti': 'Шоколад премиум-класса, мармелад, подарочные наборы конфет и десерты.',
+  'chay-kofe-kakao': 'Отборные чайные листья, бодрящие кофейные зерна и ароматное горячее какао.',
+  'konservirovannye-produkty': 'Мясные деликатесы, отборная рыба и овощные ассорти в удобном формате консервации.',
+  'gotovaya-eda': 'Сытные готовые вторые блюда, свежие салаты и легкие завтраки от профессиональных шефов.',
+  'krasota-i-gigiena': 'Средства личной гигиены, organic косметика и бытовая химия нового поколения.',
+  'vse-dlya-detey': 'Гипоаллергенное детское питание, мягкие подгузники и безопасные развивающие игрушки.',
+  'myasnaya-gastronomiya': 'Изысканные колбасы, сосиски и копчености от ведущих брендов.',
+  'polufabrikaty-moreprodukty': 'Свежемороженая рыба, креветки, крабовое мясо и полуфабрикаты ручной лепки.',
+  'sneki': 'Хрустящие чипсы, аппетитные сухарики и орехи для быстрых перекусов в любое время.',
+  'dlya-zhivotnykh': 'Полезные корма премиум-класса, лакомства и средства гигиены для ваших питомцев.'
+}
 
-const cardVariants = {
-  hidden: { opacity: 0, y: 20 },
-  show: { opacity: 1, y: 0, transition: { type: 'spring', stiffness: 100, damping: 15 } }
-} as const
+interface BentoCardProps {
+  cat: Category
+  index: number
+  count: number
+}
+
+const BentoCard: React.FC<BentoCardProps> = ({ cat, index, count }) => {
+  const navigate = useNavigate()
+  const cardRef = React.useRef<HTMLDivElement>(null)
+  const [isHovered, setIsHovered] = React.useState(false)
+
+  const handleMouseMove = (e: React.MouseEvent) => {
+    const card = cardRef.current
+    if (!card) return
+    const rect = card.getBoundingClientRect()
+    const x = e.clientX - rect.left
+    const y = e.clientY - rect.top
+    card.style.setProperty('--x', `${x}px`)
+    card.style.setProperty('--y', `${y}px`)
+  }
+
+  // Bento layout rules: define column/row spans for variety
+  const getBentoStyle = () => {
+    let gridSpan = 'span 1'
+    if (index === 0 || index === 3 || index === 8 || index === 13) {
+      gridSpan = 'span 2'
+    }
+    return {
+      gridColumn: gridSpan
+    }
+  }
+
+  const desc = CATEGORY_DESCRIPTIONS[cat.slug] || 'Качественные товары от Paykar с оперативной доставкой.'
+
+  return (
+    <div
+      ref={cardRef}
+      className={`bento-category-card-wrapper ${index === 0 || index === 3 || index === 8 || index === 13 ? 'large-bento' : ''} ${isHovered ? 'is-hovered' : ''}`}
+      style={getBentoStyle()}
+      onMouseMove={handleMouseMove}
+      onMouseEnter={() => setIsHovered(true)}
+      onMouseLeave={() => setIsHovered(false)}
+      onClick={() => navigate(`/catalog?cat=${cat.id}`)}
+    >
+      <div className="bento-card-inner">
+        {/* FRONT SIDE */}
+        <div className="bento-card-front">
+          <div className="bento-shimmer" />
+          
+          <div className="bento-card-header">
+            <div className="bento-icon-box">
+              <CategoryIcon slug={cat.slug} fontSize="large" />
+            </div>
+            <span className="bento-count-badge">
+              {count} товаров
+            </span>
+          </div>
+
+          <div className="bento-card-title-box">
+            <h3 className="bento-title">{cat.name}</h3>
+            <div className="bento-hint">Наведите, чтобы увидеть больше</div>
+          </div>
+        </div>
+
+        {/* BACK SIDE */}
+        <div className="bento-card-back">
+          <div className="bento-back-glow" />
+          
+          <div className="bento-back-content">
+            <div>
+              <h4 className="bento-back-title">{cat.name}</h4>
+              <p className="bento-back-desc">{desc}</p>
+              
+              <div className="bento-subtags-container">
+                {cat.subcategories.slice(0, 4).map(sub => (
+                  <button
+                    key={sub.id}
+                    className="bento-subtag-link"
+                    onClick={(e) => {
+                      e.stopPropagation()
+                      navigate(`/catalog?cat=${cat.id}&sub=${sub.id}`)
+                    }}
+                  >
+                    {sub.name}
+                  </button>
+                ))}
+              </div>
+            </div>
+
+            <div className="bento-action-row">
+              <span>Перейти в каталог</span>
+              <ArrowForwardIcon fontSize="small" className="bento-arrow" />
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  )
+}
 
 export const CategoriesView: React.FC = () => {
-  const navigate = useNavigate()
-
-  // Calculate product count per category
   const getProductCount = (categoryId: number) => {
     return (productsData as unknown as Product[]).filter(p => p.categoryId === categoryId).length
   }
@@ -33,154 +137,34 @@ export const CategoriesView: React.FC = () => {
     <motion.div
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
+      transition={{ duration: 0.25, ease: 'easeOut' }}
       className="categories-page-container"
       style={{ padding: '40px 0 60px' }}
     >
       {/* Page Header */}
       <div className="categories-header-section" style={{ textAlign: 'center', marginBottom: '48px' }}>
-        <h1 className="section-title" style={{ fontSize: '36px', marginBottom: '12px' }}>
-          Каталог товаров
+        <h1 className="section-title bento-page-title" style={{ fontSize: '40px', marginBottom: '12px' }}>
+          Каталог Paykar
         </h1>
-        <p style={{ color: 'var(--text-muted)', fontSize: '16px', maxWidth: '600px', margin: '0 auto' }}>
-          Выберите нужный раздел для просмотра ассортимента и выгодных предложений от Paykar
+        <p className="bento-page-subtitle" style={{ fontSize: '16px', maxWidth: '600px', margin: '0 auto' }}>
+          Выберите категорию для перехода к свежим продуктам питания и качественным хозтоварам с доставкой по Душанбе
         </p>
       </div>
 
-      {/* Grid of Categories */}
-      <motion.div
-        variants={containerVariants}
-        initial="hidden"
-        animate="show"
-        className="categories-grid"
-        style={{
-          display: 'grid',
-          gridTemplateColumns: 'repeat(auto-fill, minmax(320px, 1fr))',
-          gap: '24px'
-        }}
-      >
-        {(categoriesData as Category[]).map(cat => {
+      {/* Bento Grid of Categories */}
+      <div className="categories-bento-grid">
+        {(categoriesData as Category[]).map((cat, idx) => {
           const count = getProductCount(cat.id)
           return (
-            <motion.div
+            <BentoCard
               key={cat.id}
-              variants={cardVariants}
-              whileHover={{ y: -6 }}
-              className="category-hub-card"
-              style={{
-                background: 'var(--bg-card)',
-                border: 'var(--border-card)',
-                borderRadius: 'var(--radius-lg)',
-                padding: '28px',
-                display: 'flex',
-                flexDirection: 'column',
-                justifyContent: 'space-between',
-                boxShadow: 'var(--shadow-sm)',
-                transition: 'all 0.3s cubic-bezier(0.4, 0, 0.2, 1)',
-                position: 'relative',
-                cursor: 'pointer'
-              }}
-              onClick={() => navigate(`/catalog?cat=${cat.id}`)}
-            >
-              <div>
-                {/* Header: Icon and Count */}
-                <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '20px' }}>
-                  <div
-                    className="category-icon-wrapper"
-                    style={{
-                      width: '56px',
-                      height: '56px',
-                      borderRadius: '16px',
-                      background: 'rgba(8, 168, 38, 0.08)',
-                      display: 'flex',
-                      alignItems: 'center',
-                      justifyContent: 'center',
-                      color: 'var(--primary-green)'
-                    }}
-                  >
-                    <CategoryIcon slug={cat.slug} fontSize="large" />
-                  </div>
-                  <span
-                    className="category-badge-count"
-                    style={{
-                      fontSize: '12px',
-                      fontWeight: 600,
-                      color: 'var(--primary-green)',
-                      background: 'rgba(8, 168, 38, 0.12)',
-                      padding: '4px 12px',
-                      borderRadius: '20px'
-                    }}
-                  >
-                    {count} {count === 1 ? 'товар' : count > 1 && count < 5 ? 'товара' : 'товаров'}
-                  </span>
-                </div>
-
-                {/* Title */}
-                <h3
-                  style={{
-                    fontSize: '20px',
-                    fontWeight: 700,
-                    marginBottom: '14px',
-                    color: 'var(--text-main)'
-                  }}
-                >
-                  {cat.name}
-                </h3>
-
-                {/* Subcategories tags/list */}
-                <div
-                  className="category-subtags"
-                  style={{
-                    display: 'flex',
-                    flexWrap: 'wrap',
-                    gap: '8px',
-                    marginBottom: '24px'
-                  }}
-                >
-                  {cat.subcategories.map(sub => (
-                    <button
-                      key={sub.id}
-                      className="category-subtag-btn"
-                      style={{
-                        fontSize: '12px',
-                        background: 'var(--bg-main)',
-                        border: 'var(--border-card)',
-                        borderRadius: '8px',
-                        padding: '6px 12px',
-                        color: 'var(--text-muted)',
-                        cursor: 'pointer',
-                        transition: 'all 0.2s ease'
-                      }}
-                      onClick={(e) => {
-                        e.stopPropagation()
-                        navigate(`/catalog?cat=${cat.id}&sub=${sub.id}`)
-                      }}
-                    >
-                      {sub.name}
-                    </button>
-                  ))}
-                </div>
-              </div>
-
-              {/* Action Link */}
-              <div
-                className="category-action-link"
-                style={{
-                  display: 'flex',
-                  alignItems: 'center',
-                  gap: '8px',
-                  fontWeight: 600,
-                  fontSize: '14px',
-                  color: 'var(--primary-green)',
-                  marginTop: 'auto'
-                }}
-              >
-                <span>Перейти в раздел</span>
-                <ArrowForwardIcon fontSize="small" className="arrow-icon-shift" />
-              </div>
-            </motion.div>
+              cat={cat}
+              index={idx}
+              count={count}
+            />
           )
         })}
-      </motion.div>
+      </div>
     </motion.div>
   )
 }
