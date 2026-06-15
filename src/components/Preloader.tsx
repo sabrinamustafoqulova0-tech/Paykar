@@ -18,7 +18,7 @@ interface Particle {
 export const Preloader: React.FC<PreloaderProps> = ({ onComplete }) => {
   const canvasRef = useRef<HTMLCanvasElement>(null)
   const containerRef = useRef<HTMLDivElement>(null)
-  const [showSubText, setShowSubText] = useState(false)
+  const [, setShowSubText] = useState(false)
   const [fadeOut, setFadeOut] = useState(false)
 
   useEffect(() => {
