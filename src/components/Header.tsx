@@ -6,6 +6,14 @@ import PhoneIcon from '@mui/icons-material/Phone'
 import BarChartIcon from '@mui/icons-material/BarChart'
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart'
 import MenuIcon from '@mui/icons-material/Menu'
+import CloseIcon from '@mui/icons-material/Close'
+import SearchIcon from '@mui/icons-material/Search'
+import HomeIcon from '@mui/icons-material/Home'
+import LocalOfferIcon from '@mui/icons-material/LocalOffer'
+import InfoIcon from '@mui/icons-material/Info'
+import ContactsIcon from '@mui/icons-material/Contacts'
+import LocalShippingIcon from '@mui/icons-material/LocalShipping'
+import CategoryIcon from '@mui/icons-material/Category'
 
 import { PaykarLogo } from './Icons'
 import type { Product } from '../types'
@@ -37,7 +45,9 @@ export const Header: React.FC<HeaderProps> = ({
 
   const [scrolled, setScrolled] = useState(false)
   const [activeDropdown, setActiveDropdown] = useState<string | null>(null)
-  
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
+  const [mobileSearchOpen, setMobileSearchOpen] = useState(false)
+
   const [searchQuery, setSearchQuery] = useState('')
   const [isSearchFocused, setIsSearchFocused] = useState(false)
 
@@ -48,6 +58,12 @@ export const Header: React.FC<HeaderProps> = ({
     window.addEventListener('scroll', handleScroll)
     return () => window.removeEventListener('scroll', handleScroll)
   }, [])
+
+  // Close mobile menu on route change
+  React.useEffect(() => {
+    setMobileMenuOpen(false)
+    setMobileSearchOpen(false)
+  }, [location.pathname])
 
   const handleSearchSubmit = (e: React.FormEvent) => {
     e.preventDefault()
@@ -87,18 +103,19 @@ export const Header: React.FC<HeaderProps> = ({
   ]
 
   return (
+    <>
     <header className={`site-header-unified ${scrolled ? 'scrolled' : ''}`}>
       <div className="container header-unified-container">
         
-        {/* Left Section: Logo & City */}
+        {/* Left Section: Logo */}
         <div className="header-left">
           <div className="logo-wrapper">
-            <PaykarLogo onClick={() => navigate('/')} />
+            <PaykarLogo onClick={() => { navigate('/'); setMobileMenuOpen(false) }} />
           </div>
         </div>
 
-        {/* Center Section: Catalog & Search */}
-        <div className="header-center" style={{ display: 'flex', gap: '12px', alignItems: 'center' }}>
+        {/* Center Section: Catalog & Search — hidden on mobile */}
+        <div className="header-center header-center-desktop">
           <motion.button 
             whileHover={{ scale: 1.03 }}
             whileTap={{ scale: 0.97 }}
@@ -129,8 +146,8 @@ export const Header: React.FC<HeaderProps> = ({
           </form>
         </div>
 
-        {/* Right Section: Navigation Links & Action Controls */}
-        <div className="header-right">
+        {/* Right Section: Navigation Links & Action Controls — hidden on mobile */}
+        <div className="header-right header-right-desktop">
           <nav className="nav-links-unified" style={{ display: 'flex', gap: '8px', alignItems: 'center' }}>
             {navLinks.map((link) => {
               const active = link.match ? link.match() : isActive(link.path)
@@ -292,7 +309,154 @@ export const Header: React.FC<HeaderProps> = ({
           </div>
         </div>
 
+        {/* ── Mobile Controls (visible only on mobile) ── */}
+        <div className="mobile-header-controls">
+          {/* Mobile Cart */}
+          <button 
+            className="mobile-action-btn"
+            onClick={handleCartClick}
+            style={{ position: 'relative' }}
+          >
+            <ShoppingCartIcon fontSize="small" />
+            {cartCount > 0 && (
+              <span className="action-badge-unified">{cartCount}</span>
+            )}
+          </button>
+
+          {/* Mobile Search toggle */}
+          <button 
+            className="mobile-action-btn"
+            onClick={() => setMobileSearchOpen(v => !v)}
+          >
+            <SearchIcon fontSize="small" />
+          </button>
+
+          {/* Hamburger */}
+          <button 
+            className="mobile-hamburger-btn"
+            onClick={() => setMobileMenuOpen(v => !v)}
+            aria-label="Открыть меню"
+          >
+            {mobileMenuOpen ? <CloseIcon /> : <MenuIcon />}
+          </button>
+        </div>
+
       </div>
+
+      {/* ── Mobile Search Bar (dropdown below header) ── */}
+      <AnimatePresence>
+        {mobileSearchOpen && (
+          <motion.div
+            className="mobile-search-bar"
+            initial={{ height: 0, opacity: 0 }}
+            animate={{ height: 'auto', opacity: 1 }}
+            exit={{ height: 0, opacity: 0 }}
+            transition={{ duration: 0.25, ease: [0.16, 1, 0.3, 1] }}
+          >
+            <form onSubmit={(e) => { handleSearchSubmit(e); setMobileSearchOpen(false) }} className="mobile-search-form">
+              <SearchIcon fontSize="small" className="mobile-search-icon" />
+              <input
+                type="text"
+                placeholder="Поиск товаров..."
+                value={searchQuery}
+                onChange={(e) => setSearchQuery(e.target.value)}
+                autoFocus
+                className="mobile-search-input"
+              />
+              {searchQuery && (
+                <button type="button" onClick={() => setSearchQuery('')} className="mobile-search-clear">
+                  <CloseIcon fontSize="small" />
+                </button>
+              )}
+            </form>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </header>
+
+    {/* ── Mobile Menu Drawer ── */}
+    <AnimatePresence>
+      {mobileMenuOpen && (
+        <>
+          {/* Backdrop */}
+          <motion.div
+            className="mobile-menu-backdrop"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            onClick={() => setMobileMenuOpen(false)}
+          />
+
+          {/* Drawer */}
+          <motion.nav
+            className="mobile-menu-drawer"
+            initial={{ x: '100%' }}
+            animate={{ x: 0 }}
+            exit={{ x: '100%' }}
+            transition={{ type: 'spring', stiffness: 300, damping: 35 }}
+          >
+            {/* Drawer header */}
+            <div className="mobile-drawer-header">
+              <PaykarLogo onClick={() => { navigate('/'); setMobileMenuOpen(false) }} />
+              <button className="mobile-drawer-close" onClick={() => setMobileMenuOpen(false)}>
+                <CloseIcon />
+              </button>
+            </div>
+
+            {/* Phone link */}
+            <a href="tel:+992446302020" className="mobile-drawer-phone">
+              <PhoneIcon fontSize="small" />
+              +992 44 630 2020
+            </a>
+
+            {/* Nav links */}
+            <div className="mobile-drawer-nav">
+              {[
+                { label: 'Главная', path: '/', icon: <HomeIcon fontSize="small" /> },
+                { label: 'Каталог', path: '/categories', icon: <CategoryIcon fontSize="small" /> },
+                { label: 'Как купить', path: '/delivery', icon: <LocalShippingIcon fontSize="small" /> },
+                { label: 'Акции', path: '/promotions', icon: <LocalOfferIcon fontSize="small" /> },
+                { label: 'О нас', path: '/about', icon: <InfoIcon fontSize="small" /> },
+                { label: 'Контакты', path: '/contacts', icon: <ContactsIcon fontSize="small" /> },
+              ].map((item) => (
+                <button
+                  key={item.path}
+                  className={`mobile-nav-item ${location.pathname === item.path ? 'active' : ''}`}
+                  onClick={() => { navigate(item.path); setMobileMenuOpen(false) }}
+                >
+                  <span className="mobile-nav-icon">{item.icon}</span>
+                  <span>{item.label}</span>
+                </button>
+              ))}
+            </div>
+
+            {/* Drawer footer actions */}
+            <div className="mobile-drawer-footer">
+              <button
+                className="mobile-drawer-compare"
+                onClick={() => { navigate('/compare'); setMobileMenuOpen(false) }}
+              >
+                <BarChartIcon fontSize="small" />
+                Сравнение
+                {compareList.length > 0 && (
+                  <span className="mobile-badge">{compareList.length}</span>
+                )}
+              </button>
+
+              {isLoggedIn ? (
+                <button className="mobile-drawer-auth logout" onClick={() => { handleLogout(); setMobileMenuOpen(false) }}>
+                  Выйти из аккаунта
+                </button>
+              ) : (
+                <button className="mobile-drawer-auth login" onClick={() => { setLoginModalOpen(true); setMobileMenuOpen(false) }}>
+                  Войти
+                </button>
+              )}
+            </div>
+          </motion.nav>
+        </>
+      )}
+    </AnimatePresence>
+    </>
   )
 }
