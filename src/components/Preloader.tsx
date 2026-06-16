@@ -201,7 +201,16 @@ export const Preloader: React.FC<PreloaderProps> = ({ onComplete }) => {
         pointerEvents: fadeOut ? 'none' : 'all'
       }}
     >
-      <img style={{width:"180px", marginBottom:"-100px"}} src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ9cttNLlTRqqo2xEJvjHs5yL3Gd3HvOwhJQf3HUkMXoKQsRevPoOAHdJcX&s=10" alt="" />
+      <img
+        src="https://paykar.shop/upload/CMax/ea9/8dp6ztgdkv20zydmf7jend1jo6a7gyly.png"
+        alt="Пайкар"
+        style={{
+          width: '160px',
+          marginBottom: '-80px',
+          opacity: 0.9,
+          filter: 'drop-shadow(0 4px 12px rgba(8,168,38,0.15))'
+        }}
+      />
       <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '24px', width: '90%', maxWidth: '650px' }}>
         {/* Particle Canvas */}
         <canvas

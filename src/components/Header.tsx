@@ -3,7 +3,7 @@ import { useNavigate, useLocation } from 'react-router-dom'
 import { motion, AnimatePresence } from 'framer-motion'
 
 import PhoneIcon from '@mui/icons-material/Phone'
-import BarChartIcon from '@mui/icons-material/BarChart'
+import CompareArrowsIcon from '@mui/icons-material/CompareArrows'
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart'
 import MenuIcon from '@mui/icons-material/Menu'
 import CloseIcon from '@mui/icons-material/Close'
@@ -242,7 +242,7 @@ export const Header: React.FC<HeaderProps> = ({
               title="Сравнение" 
               onClick={() => navigate('/compare')}
             >
-              <BarChartIcon fontSize="small" />
+              <CompareArrowsIcon fontSize="small" />
               <AnimatePresence>
                 {compareList.length > 0 && (
                   <motion.span 
@@ -436,7 +436,7 @@ export const Header: React.FC<HeaderProps> = ({
                 className="mobile-drawer-compare"
                 onClick={() => { navigate('/compare'); setMobileMenuOpen(false) }}
               >
-                <BarChartIcon fontSize="small" />
+                <CompareArrowsIcon fontSize="small" />
                 Сравнение
                 {compareList.length > 0 && (
                   <span className="mobile-badge">{compareList.length}</span>

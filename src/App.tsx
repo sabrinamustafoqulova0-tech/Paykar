@@ -19,7 +19,8 @@ import { toggleCompare } from './store/compareSlice'
 // Global layout components
 import { Header } from './components/Header'
 import { Footer } from './components/Footer'
-import { ChatWidget } from './components/ChatWidget'
+import { ChatWidget, askGemini } from './components/ChatWidget'
+import type { ChatMessage } from './components/ChatWidget'
 import { LoginModal } from './components/LoginModal'
 import { ProductDetailModal } from './components/ProductDetailModal'
 import { ThemeCustomizer } from './components/ThemeCustomizer'
@@ -106,8 +107,8 @@ const AppContent: React.FC = () => {
   // ── Chat state (local, UI-only) ──────────────────────────────────────────
   const [chatOpen, setChatOpen] = useState(false)
   const [chatInput, setChatInput] = useState('')
-  const [chatMessages, setChatMessages] = useState<Array<{ sender: 'user' | 'operator'; text: string }>>([
-    { sender: 'operator', text: 'Здравствуйте! Готов помочь вам. Напишите мне, если у вас появятся вопросы.' }
+  const [chatMessages, setChatMessages] = useState<ChatMessage[]>([
+    { sender: 'ai', text: '👋 Здравствуйте! Я Пайкар AI на базе Gemini.\n\nМогу помочь найти нужный товар, рассказать о доставке, ценах и акциях. Что вас интересует? 🛒' }
   ])
 
   // ── Call-request state (local, UI-only) ──────────────────────────────────
@@ -115,27 +116,46 @@ const AppContent: React.FC = () => {
   const [callRequestPhone, setCallRequestPhone] = useState('')
   const [callRequestSuccess, setCallRequestSuccess] = useState(false)
 
-  // ── Chat handler ──────────────────────────────────────────────────────────
-  const sendChatMessage = (e: React.FormEvent) => {
+  // ── Chat handler with Gemini AI ───────────────────────────────────────────
+  const sendChatMessage = async (e: React.FormEvent) => {
     e.preventDefault()
     if (!chatInput.trim()) return
-    const userMsg = chatInput
-    setChatMessages(prev => [...prev, { sender: 'user', text: userMsg }])
+    const userMsg = chatInput.trim()
     setChatInput('')
-    setTimeout(() => {
-      let reply = 'Спасибо за ваше сообщение! Наш оператор ответит вам в ближайшее время.'
-      const lower = userMsg.toLowerCase()
-      if (lower.includes('доставк') || lower.includes('адрес')) {
-        reply = 'Доставка по Душанбе — в течение 2 часов. Стоимость от 20 сомони. Бесплатно от 500 сомони.'
-      } else if (lower.includes('оплат') || lower.includes('карт')) {
-        reply = 'Принимаем наличные, Корти Милли (терминал у курьера), Alif Mobi QR.'
-      } else if (lower.includes('рассроч') || lower.includes('салом')) {
-        reply = 'Принимаем карту рассрочки Салом от Alif на 1-2 месяца без процентов.'
-      } else if (lower.includes('минимальн') || lower.includes('заказ')) {
-        reply = 'Минимальная сумма заказа для доставки — 100 сомони.'
-      }
-      setChatMessages(prev => [...prev, { sender: 'operator', text: reply }])
-    }, 1000)
+
+    // Add user message + loading placeholder
+    const loadingMsg: ChatMessage = { sender: 'ai', text: '', isLoading: true }
+    setChatMessages(prev => [
+      ...prev,
+      { sender: 'user', text: userMsg },
+      loadingMsg
+    ])
+
+    try {
+      const aiReply = await askGemini(chatMessages, userMsg)
+      setChatMessages(prev => {
+        const updated = [...prev]
+        // Replace last loading message
+        const lastIdx = updated.length - 1
+        if (updated[lastIdx]?.isLoading) {
+          updated[lastIdx] = { sender: 'ai', text: aiReply }
+        }
+        return updated
+      })
+    } catch (err) {
+      const errText = err instanceof Error ? err.message : 'Неизвестная ошибка'
+      setChatMessages(prev => {
+        const updated = [...prev]
+        const lastIdx = updated.length - 1
+        if (updated[lastIdx]?.isLoading) {
+          updated[lastIdx] = {
+            sender: 'ai',
+            text: `⚠️ Ошибка API: ${errText}`
+          }
+        }
+        return updated
+      })
+    }
   }
 
   // ── Call-request handler ──────────────────────────────────────────────────

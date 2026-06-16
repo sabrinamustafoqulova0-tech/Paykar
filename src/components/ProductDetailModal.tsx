@@ -3,6 +3,8 @@ import { motion } from 'framer-motion'
 import CloseIcon from '@mui/icons-material/Close'
 import StarIcon from '@mui/icons-material/Star'
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart'
+import CompareArrowsIcon from '@mui/icons-material/CompareArrows'
+import CheckCircleIcon from '@mui/icons-material/CheckCircle'
 import type { Product, Review } from '../types'
 
 export interface ProductDetailModalProps {
@@ -56,7 +58,7 @@ export const ProductDetailModal: React.FC<ProductDetailModalProps> = ({
         
         <div className="product-detail-layout">
           {/* Image */}
-          <div className="detail-img-container">
+          <div className="detail-img-container" style={{ backgroundColor: '#ffffff' }}>
             <img src={activeProduct.images[0]} alt={activeProduct.name} className="detail-img" />
           </div>
 
@@ -105,11 +107,25 @@ export const ProductDetailModal: React.FC<ProductDetailModalProps> = ({
                 whileHover={{ scale: 1.02 }}
                 whileTap={{ scale: 0.98 }}
                 className="action-btn"
-                style={{ border: '1px solid rgba(28,25,23,0.1)', borderRadius: 'var(--radius-md)', padding: '12px 18px', fontWeight: 700 }}
+                style={{
+                  border: isInCompare ? '1.5px solid var(--primary-green)' : '1px solid rgba(28,25,23,0.12)',
+                  borderRadius: 'var(--radius-md)',
+                  padding: '12px 18px',
+                  fontWeight: 700,
+                  display: 'flex',
+                  alignItems: 'center',
+                  gap: '6px',
+                  color: isInCompare ? 'var(--primary-green)' : 'var(--text-main)',
+                  background: isInCompare ? 'rgba(8,168,38,0.06)' : 'transparent',
+                  transition: 'all 0.2s'
+                }}
                 title="В сравнение"
                 onClick={() => { onToggleCompare(activeProduct); }}
               >
-                {isInCompare ? '✓ В сравнении' : '📊 Сравнить'}
+                {isInCompare
+                  ? <><CheckCircleIcon fontSize="small" /> В сравнении</>
+                  : <><CompareArrowsIcon fontSize="small" /> Сравнить</>
+                }
               </motion.button>
             </div>
           </div>
