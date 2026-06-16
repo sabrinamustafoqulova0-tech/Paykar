@@ -118,7 +118,7 @@ export const ChatWidget: React.FC<ChatWidgetProps> = ({
 }) => {
   const bodyRef = useRef<HTMLDivElement>(null)
   const inputRef = useRef<HTMLInputElement>(null)
-  const [isTyping, setIsTyping] = useState(false)
+  const [isTyping] = useState(false)
 
   // Auto scroll to bottom
   useEffect(() => {
