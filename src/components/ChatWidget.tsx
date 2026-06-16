@@ -8,7 +8,7 @@ import PersonIcon from '@mui/icons-material/Person'
 
 // ── Gemini API Config ──────────────────────────────────────────────────────────
 const GEMINI_API_KEY = import.meta.env.VITE_GEMINI_API_KEY || ''
-const GEMINI_API_URL = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash-lite:generateContent?key=${GEMINI_API_KEY}`
+const GEMINI_API_URL = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent?key=${GEMINI_API_KEY}`
 
 // ── System prompt для Gemini ──────────────────────────────────────────────────
 const SYSTEM_PROMPT = `Ты — умный AI-ассистент интернет-магазина Пайкар (paykar.shop) в Душанбе, Таджикистан.
@@ -118,7 +118,7 @@ export const ChatWidget: React.FC<ChatWidgetProps> = ({
 }) => {
   const bodyRef = useRef<HTMLDivElement>(null)
   const inputRef = useRef<HTMLInputElement>(null)
-  const [isTyping] = useState(false)
+  const [isTyping,] = useState(false)
 
   // Auto scroll to bottom
   useEffect(() => {
